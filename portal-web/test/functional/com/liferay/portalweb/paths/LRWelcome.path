@@ -10,7 +10,7 @@
 <tbody>
 <tr>
 	<td>AVATAR_BUTTON</td>
-	<td>//button[@id='nmte_personal_menu_dropdown_toggle']</td>
+	<td>//span[contains(@class,'sticker-circle')]</td>
 	<td></td>
 </tr>
 <tr>
