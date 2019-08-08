@@ -1,14 +1,11 @@
 definition{
+
 	macro login{
 		Open(locator1 = "http://localhost:8080");
 
-		var key_buttonName = "${signInButton}";
-		var key_buttonName = "${agreeButton}";
-		var key_buttonName = "${saveButton}";
-
 		AssertClick(
 			locator1 = "LRLogin#SIGN_IN_URL",
-			value1 = "${signINButton}");
+			value1 = "Sign In");
 
 		Type(
 			locator1 = "LRLogin#EMAIL_ADDRESS_FIELD",
@@ -17,27 +14,38 @@ definition{
 			locator1 = "LRLogin#PASSWORD_FIELD",
 			value1 = "${password}");
 
-		AssertClick(
-			locator1 = "LRLogin#SIGN_IN_BUTTON",
-			value1 = "${signINButton}");
+		var key_buttonName = "Sign In";
 
-		AsseryClick(
-			locator1 = "LRTermsOfUse#AGREE_BUTTON",
-			value1 = "${agreeButton}");
+		AssertClick(
+			locator1 = "LRLogin#BUTTON",
+			value1 = "Sign In");
+
+		var key_buttonName = "I Agree";
+
+		while(IsElementPresent(locator1 = "LRLogin#BUTTON")) {
+			AssertClick(
+			locator1 = "LRLogin#BUTTON",
+			value1 = "I Agree");
 
 		Type(
 			locator1 = "LRPasswordReminder#PASSWORD_REMINDER_FIELD",
-			value1 = "ji");
+			value1 = "${midName}");
+
+		var key_buttonName = "Save";
 
 		AssertClick(
-			locator1 = "LRPasswordReminder#SAVE_BUTTON",
-			value1 = "${saveButton}");
+			locator1 = "LRLogin#BUTTON",
+			value1 = "Save");			
+		}
+		
 	}
+
 	macro assertLogin{
 		Click(locator1 = "LRWelcome#AVATAR_BUTTON");
 
 		AssertTextEquals(
 			locator1 = "LRWelcome#NAME_LI",
-			value1 = "${assertUser}"]);
+			value1 = "${assertUser}");
 	}
+
 }
