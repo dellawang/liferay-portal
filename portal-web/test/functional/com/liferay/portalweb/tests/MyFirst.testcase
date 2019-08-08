@@ -5,12 +5,9 @@ definition{
 	@description = "Ensure that the super admin can login successful."
 	@priority = "5"
 	test SuperAdminLogin{
-
 		MyFirstMacro.login(
-			signInButton = "Sign In",
-            agreeButton = "I Agree",
-            saveButton = "Save",
 			emailAddress = "test@liferay.com",
+			midName = "ji",
 			password = "test"
 			);
 
