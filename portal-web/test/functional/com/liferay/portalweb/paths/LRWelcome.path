@@ -14,7 +14,7 @@
 	<td></td>
 </tr>
 <tr>
-	<td>NAME_LI</td>
+	<td>PASSWORD_REMINDER_FILED</td>
 	<td>//*[@id='clay_dropdown_portal']/div/ul/li[1]</td>
 	<td></td>
 </tr>
