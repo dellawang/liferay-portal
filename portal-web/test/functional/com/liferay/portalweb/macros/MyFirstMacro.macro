@@ -45,7 +45,7 @@ definition{
 		Click(locator1 = "LRWelcome#AVATAR_BUTTON");
 
 		AssertTextEquals.assertPartialText(
-			locator1 = "LRWelcome#PASSWORD_REMINDER_FILED",
+			locator1 = "LRWelcome#CURRENT_USER_NAME",
 			value1 = "${assertUser}");
 	}
 
