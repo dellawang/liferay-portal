@@ -22,29 +22,30 @@ definition{
 
 		var key_buttonName = "I Agree";
 
-		while(IsElementPresent(locator1 = "LRLogin#BUTTON")) {
+		if(IsElementPresent(locator1 = "LRLogin#BUTTON")){
 			AssertClick(
-			locator1 = "LRLogin#BUTTON",
-			value1 = "I Agree");
-
-		Type(
-			locator1 = "LRPasswordReminder#PASSWORD_REMINDER_FIELD",
-			value1 = "${midName}");
+				locator1 = "LRLogin#BUTTON",
+				value1 = "I Agree");
+		}
 
 		var key_buttonName = "Save";
 
-		AssertClick(
-			locator1 = "LRLogin#BUTTON",
-			value1 = "Save");			
+		if(IsElementPresent(locator1 = "LRPasswordReminder#PASSWORD_REMINDER_FIELD")){
+			Type(
+				locator1 = "LRPasswordReminder#PASSWORD_REMINDER_FIELD",
+				value1 = "${midName}");
+
+			AssertClick(
+				locator1 = "LRLogin#BUTTON",
+				value1 = "Save");			
 		}
-		
 	}
 
 	macro assertLogin{
 		Click(locator1 = "LRWelcome#AVATAR_BUTTON");
 
-		AssertTextEquals(
-			locator1 = "LRWelcome#NAME_LI",
+		AssertTextEquals.assertPartialText(
+			locator1 = "LRWelcome#PASSWORD_REMINDER_FILED",
 			value1 = "${assertUser}");
 	}
 
