@@ -1,6 +1,14 @@
 definition{
 
-	macro login{
+	macro assertLogin{
+		Click(locator1 = "LRWelcome#AVATAR_BUTTON");
+
+		AssertTextEquals.assertPartialText(
+			locator1 = "LRWelcome#CURRENT_USER",
+			value1 = "${assertUser}");
+	}
+
+		macro login{
 		Open(locator1 = "http://localhost:8080");
 
 		AssertClick(
@@ -39,14 +47,6 @@ definition{
 				locator1 = "LRLogin#BUTTON",
 				value1 = "Save");			
 		}
-	}
-
-	macro assertLogin{
-		Click(locator1 = "LRWelcome#AVATAR_BUTTON");
-
-		AssertTextEquals.assertPartialText(
-			locator1 = "LRWelcome#CURRENT_USER",
-			value1 = "${assertUser}");
 	}
 
 }
