@@ -13,8 +13,7 @@ definition{
 			MyFirstMacro.login(
 				emailAddress = "${userName}",
 				midName = "ji",
-				password = "test"
-				);
+				password = "test");
 
 			MyFirstMacro.assertLogin(assertUser = "TEST");
 
