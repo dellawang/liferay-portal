@@ -30,7 +30,7 @@ definition{
 
 		var key_buttonName = "I Agree";
 
-		if (IsElementPresent(locator1 = "LRLogin#BUTTON")){
+		if (IsElementPresent(locator1 = "LRLogin#BUTTON")) {
 			AssertClick(
 				locator1 = "LRLogin#BUTTON",
 				value1 = "I Agree");
@@ -38,7 +38,7 @@ definition{
 
 		var key_buttonName = "Save";
 
-		if (IsElementPresent(locator1 = "LRPasswordReminder#PASSWORD_REMINDER_FIELD")){
+		if (IsElementPresent(locator1 = "LRPasswordReminder#PASSWORD_REMINDER_FIELD")) {
 			Type(
 				locator1 = "LRPasswordReminder#PASSWORD_REMINDER_FIELD",
 				value1 = "${midName}");
