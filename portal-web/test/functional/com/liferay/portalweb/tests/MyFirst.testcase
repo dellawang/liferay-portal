@@ -16,8 +16,7 @@ definition{
 				password = "test"
 				);
 
-			MyFirstMacro.assertLogin(
-				assertUser = "TEST");
+			MyFirstMacro.assertLogin(assertUser = "TEST");
 
 			User.logoutPG();
 		}
