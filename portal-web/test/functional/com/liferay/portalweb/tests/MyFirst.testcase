@@ -17,11 +17,9 @@ definition{
 				);
 
 			MyFirstMacro.assertLogin(
-				assertUser = "TEST"
-				);
+				assertUser = "TEST");
 
 			User.logoutPG();
-
 		}
 	}
 
