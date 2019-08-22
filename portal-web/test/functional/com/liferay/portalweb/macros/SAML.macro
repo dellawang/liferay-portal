@@ -44,50 +44,46 @@ definition {
 	}
 
 	macro configureLiferaySAMLAsSP {
-		if (IsElementPresent(locator1 = "UserBar#USER_SIGN_IN")) {
-			User.loginPG(
+		User.loginPG(
 			password = "test",
 			specificURL = "${spURL}",
 			userEmailAddress = "test@liferay.com");
-			}
-		else {
-			Navigator.openSpecificURL(url = "${spURL}");
 
-			ProductMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "SAML Admin");
+		Navigator.openSpecificURL(url = "${spURL}");
 
-			SAMLRole.configure(
-				samlEntityID = "${samlEntityID}",
-				samlRoleType = "Service Provider");
+		ProductMenu.gotoPortlet(
+			category = "Configuration",
+			panel = "Control Panel",
+			portlet = "SAML Admin");
 
-			if ("${encryptionCertificate}" == "true") {
-				for (var certificateUsage : list "SIGNING,ENCRYPTION") {
-					SAMLRole.configureCertificateAndPrivateKey(
-						certificateUsage = "${certificateUsage}",
-						samlKeyPassword = "${samlEntityID}");
-				}
-			}
-			else {
+		SAMLRole.configure(
+			samlEntityID = "${samlEntityID}",
+			samlRoleType = "Service Provider");
+
+		if ("${encryptionCertificate}" == "true") {
+			for (var certificateUsage : list "SIGNING,ENCRYPTION") {
 				SAMLRole.configureCertificateAndPrivateKey(
-					certificateUsage = "SIGNING",
+					certificateUsage = "${certificateUsage}",
 					samlKeyPassword = "${samlEntityID}");
 			}
-
-			SAML.connectSPAndIdP(
-				idpAttributes = "${idpAttributes}",
-				idpEntityID = "samlidp",
-				idpKeepAliveURL = "${idpKeepAliveURL}",
-				idpURL = "http://localhost:8080",
-				nameIdentifierAttributeName = "${nameIdentifierAttributeName}",
-				nameIdentifierFormat = "${nameIdentifierFormat}",
-				spAttributes = "${spAttributes}",
-				spEntityID = "${samlEntityID}",
-				spKeepAliveURL = "${spKeepAliveURL}",
-				spURL = "${spURL}");
 		}
-		
+		else {
+			SAMLRole.configureCertificateAndPrivateKey(
+				certificateUsage = "SIGNING",
+				samlKeyPassword = "${samlEntityID}");
+		}
+
+		SAML.connectSPAndIdP(
+			idpAttributes = "${idpAttributes}",
+			idpEntityID = "samlidp",
+			idpKeepAliveURL = "${idpKeepAliveURL}",
+			idpURL = "http://localhost:8080",
+			nameIdentifierAttributeName = "${nameIdentifierAttributeName}",
+			nameIdentifierFormat = "${nameIdentifierFormat}",
+			spAttributes = "${spAttributes}",
+			spEntityID = "${samlEntityID}",
+			spKeepAliveURL = "${spKeepAliveURL}",
+			spURL = "${spURL}");
 	}
 
 	macro connectSPAndIdP {
