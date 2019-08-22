@@ -1007,6 +1007,7 @@ definition {
 		property app.server.bundles.size = "2";
 		property databases.size = "2";
 		property test.name.skip.portal.instance = "SAML#ViewSingleLogoutAndForceAuthWithMultipleSPs";
+		property portal.acceptance = "della";
 
 		SAML.configureLiferaySAMLAsIdP(samlEntityID = "samlidp");
 
