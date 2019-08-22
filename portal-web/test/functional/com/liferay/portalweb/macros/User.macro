@@ -1578,10 +1578,12 @@ definition {
 
 	macro loginLocalizationPG {
 		var localizedSignIn = User._signInLocalization(localization = "${localization}");
+		if (IsElementPresent(locator1 = "UserBar#USER_SIGN_IN")) {
+			AssertClick(
+				locator1 = "UserBar#USER_SIGN_IN",
+				value1 = "${localizedSignIn}");
+		}
 
-		AssertClick(
-			locator1 = "UserBar#USER_SIGN_IN",
-			value1 = "${localizedSignIn}");
 	}
 
 	@summary = "Log into Liferay Portal as '${userEmailAddress}' using the password '${password}'"
