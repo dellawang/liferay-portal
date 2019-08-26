@@ -10,7 +10,6 @@ definition {
 	property plugins.deployment.type = "osgi";
 	property test.run.environment = "EE";
 	property testray.main.component.name = "SAML";
-	property portal.acceptance = "Della";
 
 	// All test cases are currently configured to run Liferay SAML as both the IdP and SP.
 
@@ -1008,7 +1007,7 @@ definition {
 		property app.server.bundles.size = "2";
 		property databases.size = "2";
 		property test.name.skip.portal.instance = "SAML#ViewSingleLogoutAndForceAuthWithMultipleSPs";
-		property portal.acceptance = "della";
+		property portal.acceptance = "Della";
 
 		SAML.configureLiferaySAMLAsIdP(samlEntityID = "samlidp");
 
