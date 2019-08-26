@@ -10,6 +10,7 @@ definition {
 	property plugins.deployment.type = "osgi";
 	property test.run.environment = "EE";
 	property testray.main.component.name = "SAML";
+	property portal.acceptance = "Della";
 
 	// All test cases are currently configured to run Liferay SAML as both the IdP and SP.
 
