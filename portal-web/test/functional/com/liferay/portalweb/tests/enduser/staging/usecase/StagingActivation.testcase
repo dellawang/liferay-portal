@@ -57,7 +57,12 @@ definition {
 			panel = "Site Administration",
 			portlet = "Staging");
 
-		Staging.viewPublicationSummary(publicationTitle = "summCheck");
+		Staging.viewPublicationSummary(
+			dateRestrictionOption = "From Last Publish Date",
+			deletions = "true",
+			pagesOption = "Public Pages",
+			permissions = "true",
+			publicationTitle = "summCheck");
 	}
 
 	@priority = "4"
