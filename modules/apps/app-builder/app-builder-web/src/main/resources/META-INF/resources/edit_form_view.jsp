@@ -21,7 +21,7 @@ String editFormViewRootElementId = renderResponse.getNamespace() + "-app-builder
 String componentId = renderResponse.getNamespace() + "dataLayoutBuilder";
 long dataDefinitionId = ParamUtil.getLong(request, "dataDefinitionId");
 long dataLayoutId = ParamUtil.getLong(request, "dataLayoutId");
-boolean isNewCustomObject = ParamUtil.getBoolean(request, "isNewCustomObject");
+boolean newCustomObject = ParamUtil.getBoolean(request, "newCustomObject");
 %>
 
 <div class="app-builder-root">
@@ -53,7 +53,7 @@ boolean isNewCustomObject = ParamUtil.getBoolean(request, "isNewCustomObject");
 					dataLayoutBuilder: dataLayoutBuilder,
 					dataDefinitionId: <%= dataDefinitionId %>,
 					dataLayoutId: <%= dataLayoutId %>,
-					isNewCustomObject: <%= isNewCustomObject %>
+					newCustomObject: <%= newCustomObject %>
 				}
 			);
 		}

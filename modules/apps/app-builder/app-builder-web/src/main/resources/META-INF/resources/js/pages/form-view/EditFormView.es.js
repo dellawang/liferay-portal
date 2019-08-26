@@ -27,7 +27,7 @@ export default ({
 	dataDefinitionId,
 	dataLayoutBuilder,
 	dataLayoutId,
-	isNewCustomObject
+	newCustomObject
 }) => {
 	const fieldTypes = dataLayoutBuilder.getFieldTypes();
 
@@ -106,7 +106,7 @@ export default ({
 	useSidebarContent(builderElementRef, isSidebarClosed);
 
 	const handleCancel = () => {
-		if (isNewCustomObject) {
+		if (newCustomObject) {
 			Liferay.Util.navigate(basePortletURL);
 		} else {
 			Liferay.Util.navigate(listUrl);

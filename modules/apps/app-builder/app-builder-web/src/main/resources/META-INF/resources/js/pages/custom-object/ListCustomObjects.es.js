@@ -108,8 +108,8 @@ export default withRouter(({history}) => {
 				Liferay.Util.navigate(
 					Liferay.Util.PortletURL.createRenderURL(basePortletURL, {
 						dataDefinitionId: id,
-						isNewCustomObject: true,
-						mvcRenderCommandName: '/edit_form_view'
+						mvcRenderCommandName: '/edit_form_view',
+						newCustomObject: true
 					})
 				);
 			} else {
