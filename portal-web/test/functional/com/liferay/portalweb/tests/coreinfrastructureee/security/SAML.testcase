@@ -1153,6 +1153,7 @@ definition {
 	@priority = "4"
 	test ViewSPInitiatedSSO {
 		property test.name.skip.portal.instance = "SAML#ViewSPInitiatedSSO";
+		property portal.acceptance = "Della";
 
 		SAML.configureLiferaySAMLAsIdP(samlEntityID = "samlidp");
 
