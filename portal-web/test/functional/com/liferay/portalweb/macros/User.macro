@@ -1585,7 +1585,7 @@ definition {
 				locator1 = "UserBar#USER_SIGN_IN",
 				value1 = "${localizedSignIn}");
 		}
-		
+
 	}
 
 	@summary = "Log into Liferay Portal as '${userEmailAddress}' using the password '${password}'"
