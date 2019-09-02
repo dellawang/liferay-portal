@@ -1580,7 +1580,7 @@ definition {
 		var localizedSignIn = User._signInLocalization(localization = "${localization}");
 
 		if（IsElementPresent(locator1 = "UserBar#USER_SIGN_IN")）{
-		
+
 			AssertClick(
 				locator1 = "UserBar#USER_SIGN_IN",
 				value1 = "${localizedSignIn}");
