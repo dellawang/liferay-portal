@@ -820,6 +820,7 @@ definition {
 	@priority = "5"
 	test ValidateVulnerabilitiesXMLAttacks {
 		property test.name.skip.portal.instance = "SAML#ValidateVulnerabilitiesXMLAttacks";
+		property portal.acceptance = "Della";
 
 		SAML.configureLiferaySAMLAsIdP(samlEntityID = "samlidp");
 
