@@ -679,7 +679,7 @@ definition {
 			rowEntry = "OAuth Application");
 
 		AssertTextEquals(
-			locator1 = "Portlet#HEADER", 
+			locator1 = "Portlet#HEADER",
 			value1 = "OAuth Application");
 
 		var generatedClientId = selenium.getElementValue("OAuth2#ADMIN_INPUT_FORM_CLIENT_ID");
