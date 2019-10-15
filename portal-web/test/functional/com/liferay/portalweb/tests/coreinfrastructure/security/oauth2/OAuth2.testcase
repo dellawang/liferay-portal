@@ -672,8 +672,7 @@ definition {
 		OAuth2.editScopes(			
 			applicationName = "OAuth Application",
 			resourceCheckList = "liferay-json-web-services.everything.read,liferay-json-web-services.everything.write,liferay-json-web-services.everything.read.documents.download,liferay-json-web-services.everything.read.userprofile",
-			resourcePanels = "Portal Services"
-		);
+			resourcePanels = "Portal Services");
 
 		LexiconEntry.gotoEntryMenuItem(
 			menuItem = "Edit",
@@ -705,8 +704,7 @@ definition {
 		OAuth2.viewScopes(
 			applicationName = "OAuth Application",
 			resourceCheckList = "liferay-json-web-services.everything.read,liferay-json-web-services.everything.write,liferay-json-web-services.everything.read.documents.download,liferay-json-web-services.everything.read.userprofile",
-			resourcePanels = "Portal Services"
-		);
+			resourcePanels = "Portal Services");
 
 		OAuth2.viewGrantedAuthViaAdmin(
 			applicationName = "OAuth Application",
