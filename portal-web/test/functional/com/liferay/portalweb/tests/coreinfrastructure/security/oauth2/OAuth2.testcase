@@ -707,7 +707,7 @@ definition {
 			resourceCheckList = "liferay-json-web-services.everything.read,liferay-json-web-services.everything.write,liferay-json-web-services.everything.read.documents.download,liferay-json-web-services.everything.read.userprofile",
 			resourcePanels = "Portal Services"
 		);
-		
+
 		OAuth2.viewGrantedAuthViaAdmin(
 			applicationName = "OAuth Application",
 			noAuthorizations = "true");
