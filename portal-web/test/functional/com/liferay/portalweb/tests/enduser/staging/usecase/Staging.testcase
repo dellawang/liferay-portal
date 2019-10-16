@@ -3895,9 +3895,9 @@ definition {
 
 		WebContent.addWithStructureCP(
 			structureName = "Structure Name",
-			webContentTitle = "WebContent Title",
 			webContentImage = "Spaceport.jpg",
-			webContentImageDescription = "this image doesn't work");
+			webContentImageDescription = "this image doesn't work",
+			webContentTitle = "WebContent Title");
 
 		PortletEntry.publish();
 
