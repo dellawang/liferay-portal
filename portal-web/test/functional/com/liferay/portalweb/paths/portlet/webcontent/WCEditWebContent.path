@@ -24,11 +24,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td>IMAGE_DESCRIPTION</td>
-	<td>//input[contains(@id,'JournalPortlet_Image')]</td>
-	<td></td>
-</tr>
-<tr>
 	<td>SIDEBAR</td>
 	<td>//div[contains(@class,'contextual-sidebar-visible')]</td>
 	<td></td>
