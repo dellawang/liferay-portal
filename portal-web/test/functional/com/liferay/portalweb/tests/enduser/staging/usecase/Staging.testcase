@@ -3908,7 +3908,6 @@ definition {
 			entry = "WebContent Title");
 
 		AssertConsoleTextNotPresent(value1 = "Error: The Web Content Article test image could not be imported because of the following error: Invalid XPath expression:");
-
 	}
 
 	@description = "This is a use case for LPS-82688."
