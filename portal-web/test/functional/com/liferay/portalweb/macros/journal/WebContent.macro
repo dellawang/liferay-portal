@@ -237,10 +237,6 @@ definition {
 			value1 = "${priority}");
 	}
 
-	macro publishToLive {
-
-	}
-
 	macro addStructuredPGViaWCD {
 		WebContentDisplayPortletNavigator.gotoAdd(structureName = "${structureName}");
 
