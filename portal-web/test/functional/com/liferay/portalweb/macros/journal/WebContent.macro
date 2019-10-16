@@ -237,6 +237,10 @@ definition {
 			value1 = "${priority}");
 	}
 
+	macro publishToLive {
+
+	}
+
 	macro addStructuredPGViaWCD {
 		WebContentDisplayPortletNavigator.gotoAdd(structureName = "${structureName}");
 
@@ -505,6 +509,14 @@ definition {
 			ItemSelector.uploadFile(
 				navTab = "Web Content Images",
 				uploadFileName = "${webContentImage}");
+		}
+
+		if (isSet(webContentImageDescription)) {
+			Click(locator1 = "WCEditWebContent#IMAGE_DESCRIPTION");
+
+			Type.sendKeys(
+				locator1 = "WCEditWebContent#IMAGE_DESCRIPTION",
+				value1 = "${webContentImageDescription}");
 		}
 
 		if (isSet(webContentImageUnderDocumentsAndMedia)) {
