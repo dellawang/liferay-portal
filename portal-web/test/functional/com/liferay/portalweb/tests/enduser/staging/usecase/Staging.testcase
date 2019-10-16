@@ -3854,6 +3854,63 @@ definition {
 		}
 	}
 
+	@description = "This is a use case for LPS-87280."
+	@priority = "4"
+	test ViewPublishedWithImagesInWebContentStructures {
+		Navigator.openSiteURL(siteName = "Site Name");
+
+		ProductMenu.gotoPortlet(
+			category = "Publishing",
+			panel = "Site Administration",
+			portlet = "Staging");
+
+		Staging.activateStagingCP(siteName = "Site Name");
+
+		WebContentNavigator.openWebContentAdmin(siteURLKey = "site-name-staging");
+
+		NavItem.gotoStructures();
+
+		WebContentStructures.addCP(
+			structureDescription = "Structure Description",
+			structureName = "Structure Name");
+
+		for (var structureFieldName : list "Image") {
+			DynamicDataMapping.addField(
+				field = "${structureFieldName}",
+				fieldFieldLabel = "${structureFieldName}",
+				fieldName = StringUtil.replace("${structureFieldName}", " ", ""));
+		}
+
+		DynamicDataMapping.selectDynamicDataMappingFrame();
+
+		DynamicDataMapping.editFieldSettings(fieldFieldLabel = "Image");
+
+		DynamicDataMapping.makeFieldRequired();
+
+		WebContentStructures.saveCP(structureName = "Structure Name");
+
+		WebContentNavigator.openWebContentAdmin(siteURLKey = "site-name-staging");
+
+		WebContentNavigator.gotoAddWithStructureCP(structureName = "Structure Name");
+
+		WebContent.addWithStructureCP(
+			structureName = "Structure Name",
+			webContentTitle = "WebContent Title",
+			webContentImage = "Spaceport.jpg",
+			webContentImageDescription = "this image doesn't work");
+
+		PortletEntry.publish();
+
+		WebContent.viewTitle(webContentTitle = "WebContent Title");
+
+		Staging.publishViaSAP(
+			confirmMessage = "Are you sure you want to publish the selected web content?",
+			entry = "WebContent Title");
+
+		AssertConsoleTextNotPresent(value1 = "Error: The Web Content Article test image could not be imported because of the following error: Invalid XPath expression:");	
+
+	}
+
 	@description = "This is a use case for LPS-82688."
 	@priority = "3"
 	test ViewPublishWCWithConfiguredCategoriesFilter {
