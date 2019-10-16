@@ -3907,7 +3907,7 @@ definition {
 			confirmMessage = "Are you sure you want to publish the selected web content?",
 			entry = "WebContent Title");
 
-		AssertConsoleTextNotPresent(value1 = "Error: The Web Content Article test image could not be imported because of the following error: Invalid XPath expression:");	
+		AssertConsoleTextNotPresent(value1 = "Error: The Web Content Article test image could not be imported because of the following error: Invalid XPath expression:");
 
 	}
 
