@@ -508,11 +508,16 @@ definition {
 		}
 
 		if (isSet(webContentImageDescription)) {
+			/*
 			Click(locator1 = "WCEditWebContent#IMAGE_DESCRIPTION");
 
 			Type.sendKeys(
 				locator1 = "WCEditWebContent#IMAGE_DESCRIPTION",
 				value1 = "${webContentImageDescription}");
+			*/
+			FormFields.editTextAlt(
+			fieldName = "Image",
+			fieldValue = "${webContentImageDescription}");
 		}
 
 		if (isSet(webContentImageUnderDocumentsAndMedia)) {
