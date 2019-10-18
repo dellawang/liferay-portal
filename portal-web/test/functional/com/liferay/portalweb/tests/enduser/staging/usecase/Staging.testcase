@@ -3858,8 +3858,8 @@ definition {
 	@priority = "4"
 	test ViewPublishedWithImagesInWebContentStructures {
 		JSONLayout.addPublicLayout(
-				groupName = "Site Name",
-				layoutName = "Staging Test Page");
+			groupName = "Site Name",
+			layoutName = "Staging Test Page");
 
 		Navigator.openSiteURL(siteName = "Site Name");
 
@@ -3871,13 +3871,13 @@ definition {
 		Staging.activateStagingCP(siteName = "Site Name");
 
 		Navigator.gotoStagedSitePage(
-				pageName = "Staging Test Page",
-				siteName = "Site Name");
+			pageName = "Staging Test Page",
+			siteName = "Site Name");
 
 		ProductMenu.gotoPortlet(
-				category = "Content &amp; Data",
-				panel = "Site Administration",
-				portlet = "Web Content");
+			category = "Content &amp; Data",
+			panel = "Site Administration",
+			portlet = "Web Content");
 
 		NavItem.gotoStructures();
 
@@ -3907,9 +3907,9 @@ definition {
 			templateName = "Template Name");
 
 		ProductMenu.gotoPortlet(
-				category = "Content &amp; Data",
-				panel = "Site Administration",
-				portlet = "Web Content");
+			category = "Content &amp; Data",
+			panel = "Site Administration",
+			portlet = "Web Content");
 
 		WebContentNavigator.gotoAddWithStructureCP(structureName = "Structure Name");
 
@@ -3925,16 +3925,16 @@ definition {
 		WebContent.viewTitle(webContentTitle = "WebContent Title");
 
 	    Navigator.gotoStagedSitePage(
-				pageName = "Staging Test Page",
-				siteName = "Site Name");
+			pageName = "Staging Test Page",
+			siteName = "Site Name");
 
 		Portlet.addPG(portletName = "Web Content Display");
 
 		WebContentDisplayPortlet.selectWebContent(webContentTitle = "WebContent Title");
 
 		Navigator.gotoStagedSitePage(
-				pageName = "Staging Test Page",
-				siteName = "Site Name");
+			pageName = "Staging Test Page",
+			siteName = "Site Name");
 
 		WebContentDisplayPortlet.viewImageFieldViaWCD();
 
