@@ -3857,6 +3857,10 @@ definition {
 	@description = "This is a use case for LPS-87280."
 	@priority = "4"
 	test ViewPublishedWithImagesInWebContentStructures {
+		JSONLayout.addPublicLayout(
+				groupName = "Site Name",
+				layoutName = "Staging Test Page");
+
 		Navigator.openSiteURL(siteName = "Site Name");
 
 		ProductMenu.gotoPortlet(
@@ -3866,7 +3870,14 @@ definition {
 
 		Staging.activateStagingCP(siteName = "Site Name");
 
-		WebContentNavigator.openWebContentAdmin(siteURLKey = "site-name-staging");
+		Navigator.gotoStagedSitePage(
+				pageName = "Staging Test Page",
+				siteName = "Site Name");
+
+		ProductMenu.gotoPortlet(
+				category = "Content &amp; Data",
+				panel = "Site Administration",
+				portlet = "Web Content");
 
 		NavItem.gotoStructures();
 
@@ -3874,12 +3885,10 @@ definition {
 			structureDescription = "Structure Description",
 			structureName = "Structure Name");
 
-		for (var structureFieldName : list "Image") {
 			DynamicDataMapping.addField(
-				field = "${structureFieldName}",
-				fieldFieldLabel = "${structureFieldName}",
-				fieldName = StringUtil.replace("${structureFieldName}", " ", ""));
-		}
+				field = "Image",
+				fieldFieldLabel = "Image",
+				fieldName = StringUtil.replace("Image", " ", ""));
 
 		DynamicDataMapping.selectDynamicDataMappingFrame();
 
@@ -3889,13 +3898,25 @@ definition {
 
 		WebContentStructures.saveCP(structureName = "Structure Name");
 
-		WebContentNavigator.openWebContentAdmin(siteURLKey = "site-name-staging");
+		NavItem.gotoTemplates();
+
+		WebContentTemplates.addCP(
+			structureName = "Structure Name",
+			templateDescription = "Template Description",
+			templateFieldNames = "Image",
+			templateName = "Template Name");
+
+		ProductMenu.gotoPortlet(
+				category = "Content &amp; Data",
+				panel = "Site Administration",
+				portlet = "Web Content");
 
 		WebContentNavigator.gotoAddWithStructureCP(structureName = "Structure Name");
 
 		WebContent.addWithStructureCP(
 			structureName = "Structure Name",
-			webContentImage = "Spaceport.jpg",
+			templateName = "Template Name",
+			webContentImage = "Document_2.jpeg",
 			webContentImageDescription = "this image doesn't work",
 			webContentTitle = "WebContent Title");
 
@@ -3903,11 +3924,29 @@ definition {
 
 		WebContent.viewTitle(webContentTitle = "WebContent Title");
 
-		Staging.publishViaSAP(
-			confirmMessage = "Are you sure you want to publish the selected web content?",
-			entry = "WebContent Title");
+	    Navigator.gotoStagedSitePage(
+				pageName = "Staging Test Page",
+				siteName = "Site Name");
 
-		AssertConsoleTextNotPresent(value1 = "Error: The Web Content Article test image could not be imported because of the following error: Invalid XPath expression:");
+		Portlet.addPG(portletName = "Web Content Display");
+
+		WebContentDisplayPortlet.selectWebContent(webContentTitle = "WebContent Title");
+
+		Navigator.gotoStagedSitePage(
+				pageName = "Staging Test Page",
+				siteName = "Site Name");
+
+		WebContentDisplayPortlet.viewImageFieldViaWCD();
+
+		Staging.gotoPublishToLive();
+
+		Staging.publishToLive();
+
+		AssertConsoleTextNotPresent(value1 = "error: Invalid XPath expression");
+
+		ProductMenu.gotoLiveSite();
+
+		WebContentDisplayPortlet.viewImageFieldViaWCD();
 	}
 
 	@description = "This is a use case for LPS-82688."
