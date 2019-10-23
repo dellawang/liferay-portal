@@ -9,6 +9,7 @@ definition {
 	property plugins.deployment.type = "osgi";
 	property test.run.environment = "EE";
 	property testray.main.component.name = "SAML";
+	property portal.acceptance = "Della";
 
 	// All test cases are currently configured to run Liferay SAML as the IdP and Liferay SAML as the SP. This will change as more SAML implmentations are added to this test suite (ie Shibboleth)
 
