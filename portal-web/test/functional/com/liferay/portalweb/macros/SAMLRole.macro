@@ -56,7 +56,9 @@ definition {
 			locator1 = "Button#SUBMIT",
 			value1 = "Save");
 
-		WaitForElementNotPresent(locator1 = "IFrame#DIALOG");
+		while (IsElementPresent(locator1 = "IFrame#DIALOG") && (maxIterations = "3")) {
+			Pause(locator1 = "2000");
+		}
 
 		AssertElementPresent(
 			key_certificateUsage = "${certificateUsage}",
