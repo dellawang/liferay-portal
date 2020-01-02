@@ -14,11 +14,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td>ITEM_NAME</td>
-	<td>//ul[contains(@class,'list-group')]/*[contains(@data-qa-id,'row')]//h5[*[contains(.,'${key_itemName}')]]</td>
-	<td></td>
-</tr>
-<tr>
 	<td>ITEM_NAME_LINK</td>
 	<td>//ul[contains(@class,'list-group')]/*[contains(@data-qa-id,'row')]//h5/a[normalize-space(text())='${key_itemName}']</td>
 	<td></td>

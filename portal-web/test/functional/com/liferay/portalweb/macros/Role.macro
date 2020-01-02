@@ -205,20 +205,12 @@ definition {
 		if (isSet(roleUser)) {
 			var key_itemName = "${roleUser}";
 
-			AssertTextEquals(
-				locator1 = "ListGroupItem#ITEM_NAME",
-				value1 = "${roleUser}");
-
 			AssertClick(
 				locator1 = "ListGroupItem#ITEM_NAME_LINK",
 				value1 = "${roleUser}");
 		}
 		else {
 			var key_itemName = "${roleTitle}";
-
-			AssertTextEquals(
-				locator1 = "ListGroupItem#ITEM_NAME",
-				value1 = "${roleTitle}");
 
 			AssertClick(
 				locator1 = "ListGroupItem#ITEM_NAME_LINK",
