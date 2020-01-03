@@ -54,18 +54,23 @@
 	<td></td>
 </tr>
 <tr>
+	<td>USER_DASHBOARD</td>
+	<td>//a[contains(.,'Dashboard')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>USER_FULL_NAME</td>
 	<td>//li[@class='dropdown-subheader']</td>
 	<td></td>
 </tr>
 <tr>
-	<td>USER_PROFILE</td>
-	<td>//a[contains(.,'Profile')]</td>
+	<td>USER_ORGANIZATIONS</td>
+	<td>//a[contains(.,'Organizations')]</td>
 	<td></td>
 </tr>
 <tr>
-	<td>USER_DASHBOARD</td>
-	<td>//a[contains(.,'Dashboard')]</td>
+	<td>USER_PROFILE</td>
+	<td>//a[contains(.,'Profile')]</td>
 	<td></td>
 </tr>
 <tr>
