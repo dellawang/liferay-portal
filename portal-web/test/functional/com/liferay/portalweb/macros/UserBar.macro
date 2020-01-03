@@ -21,6 +21,12 @@ definition {
 			value1 = "${dropdownItem}");
 	}
 
+	macro openUserOrganizations {
+		UserBar.gotoDropdown();
+
+		Click(locator1 = "UserBar#USER_ORGANIZATIONS");
+	}
+
 	macro signOut {
 		if (IsElementNotPresent(locator1 = "UserBar#USER_SIGN_IN")) {
 			UserBar.gotoDropdown();
