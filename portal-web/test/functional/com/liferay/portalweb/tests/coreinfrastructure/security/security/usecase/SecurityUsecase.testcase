@@ -208,6 +208,8 @@ out.println(PortalUtil.escapeRedirect("/"));
 	@description = "This is a use case for LPS-85112."
 	@priority = "5"
 	test ValidateViewPermissionCanNotUpdateOtherUsersPassword {
+		property test.name.skip.portal.instance = "SecurityUsecase#ValidateViewPermissionCanNotUpdateOtherUsersPassword";
+
 		ProductMenu.gotoPortlet(
 			category = "Users",
 			panel = "Control Panel",
