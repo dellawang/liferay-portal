@@ -662,6 +662,10 @@ definition {
 			configurationName = "SAML Configuration",
 			configurationScope = "System Scope");
 
+		ScrollWebElementIntoView(
+			key_fieldLabel = "Runtime Metadata Refresh Interval",
+			locator1 = "TextInput#GENERIC_TEXT_INPUT");
+
 		SystemSettings.editTextSetting(
 			settingName = "Runtime Metadata Refresh Interval",
 			settingValue = "9999");
