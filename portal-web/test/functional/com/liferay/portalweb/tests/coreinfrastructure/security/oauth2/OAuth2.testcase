@@ -324,6 +324,8 @@ definition {
 	@description = "This is a use case for OAUTH2-259."
 	@priority = "4"
 	test AssertClientCredentialsIsUserScoped {
+		property portal.upstream = "quarantine";
+
 		JSONWebcontent.addWebContent(
 			content = "WC Content",
 			groupName = "Guest",
