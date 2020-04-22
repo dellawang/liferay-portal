@@ -447,7 +447,9 @@ definition {
 
 		Navigator.openURL();
 
-		Portlet.addPG(portletName = "Web Content Display");
+		Click(locator1 = "Icon#EDIT_PENCIL");
+
+		PageEditor.addWidget(portletName = "Web Content Display");
 
 		WebContentDisplayPortlet.selectWebContent(webContentTitle = '''<script>alert(123);</script>''');
 
