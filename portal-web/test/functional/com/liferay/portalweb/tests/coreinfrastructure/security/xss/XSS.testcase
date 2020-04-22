@@ -46,7 +46,7 @@ definition {
 			''';
 
 		var maliciousURL5 = '''
-				${portalURL}/web/guest/home?p_p_id=113&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&_113_tabs1=background-styles
+				${portalURL}/web/guest/search?p_p_id=113&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&_113_tabs1=background-styles
 			''';
 
 		Navigator.openSpecificURL(url = "${maliciousURL1}");
