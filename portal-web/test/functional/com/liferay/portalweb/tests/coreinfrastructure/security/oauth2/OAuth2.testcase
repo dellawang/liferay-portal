@@ -606,9 +606,8 @@ definition {
 	}
 
 	test RemoveExpiredAuthorization {
-		property custom.properties = "virtual.hosts.default.site.name=Guest";
 		property osgi.module.configuration.file.names = "com.liferay.oauth2.provider.rest.internal.spi.bearer.token.provider.configuration.DefaultBearerTokenProviderConfiguration.config:com.liferay.oauth2.provider.configuration.OAuth2ProviderConfiguration.config";
-		property osgi.module.configurations = "access.token.expires.in=&quot;60&quot;\nrefresh.token.expires.in=&quot;180&quot;:\noauth2.expired.authorizations.afterlife.duration=&quot60&quot;\noauth2.expired.authorizations.check.interval=&quot;1&quot;";
+		property osgi.module.configurations = "access.token.expires.in=&quot;60&quot;\nrefresh.token.expires.in=&quot;180&quot;:oauth2.expired.authorizations.afterlife.duration=&quot60&quot;\noauth2.expired.authorizations.check.interval=&quot;1&quot;";
 
 		ProductMenu.gotoPortlet(
 			category = "Configuration",
@@ -621,8 +620,7 @@ definition {
 
 		OAuth2.addApplication(
 			applicationName = "Test Expired Application",
-			callbackURI = '''http://martamedio.com/oauth2-tester/?url=${portalURL}&client_id=${clientId}''',
-			clientProfile = "Web Application");
+			callbackURI = '''http://martamedio.com/oauth2-tester/?url=${portalURL}&client_id=${clientId}''');
 
 		Navigator.gotoBack();
 
