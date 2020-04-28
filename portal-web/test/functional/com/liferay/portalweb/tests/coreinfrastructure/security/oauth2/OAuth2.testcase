@@ -606,8 +606,8 @@ definition {
 	}
 
 	test RemoveExpiredAuthorization {
-		property osgi.module.configuration.file.names = "com.liferay.oauth2.provider.rest.internal.spi.bearer.token.provider.configuration.DefaultBearerTokenProviderConfiguration.config";
-		property osgi.module.configurations = "access.token.expires.in=&quot;60&quot;";
+		property osgi.module.configuration.file.names = "com.liferay.oauth2.provider.rest.internal.spi.bearer.token.provider.configuration.DefaultBearerTokenProviderConfiguration.config:com.liferay.oauth2.provider.configuration.OAuth2ProviderConfiguration.config";
+		property osgi.module.configurations = "access.token.expires.in=&quot;5&quot;refresh.token.expires.in=&quot;10&quot;:oauth2.expired.authorizations.afterlife.duration=&quot5&quot;oauth2.expired.authorizations.check.interval=&quot;1&quot;";
 
 		ProductMenu.gotoPortlet(
 			category = "Configuration",
@@ -662,7 +662,7 @@ definition {
 			key_activity = "Last Access",
 			locator1 = "OAuth2#USER_CONNECTED_APP_ACTIVITY");
 
-		Pause(locator1 = "120000");
+		Pause(locator1 = "17000");
 
 		Refresh();
 
