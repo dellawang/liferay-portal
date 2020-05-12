@@ -209,6 +209,7 @@ definition {
 		var portalURL = PropsUtil.get("portal.url");
 
 		MultiFactorAuthentication.verifyOTP(
+			invalidOTP = "123456";
 			portalURL = "${portalURL}",
 			recipient = "Test Test",
 			userEmailAddress = "test@liferay.com",
