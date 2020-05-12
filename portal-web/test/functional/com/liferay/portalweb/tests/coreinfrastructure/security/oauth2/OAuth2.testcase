@@ -706,23 +706,6 @@ definition {
 
 		var authorizationCode = OAuth2.getAuthorizationCode();
 
-		var curl = '''
-			${portalURL}/o/oauth2/token \
-				-d client_id=abc123 \
-				-d client_secret=abc123 \
-				-d grant_type=authorization_code \
-				-d code=${authorizationCode}
-		''';
-
-		var output = JSONCurlUtil.post("${curl}"); 
-
-		if (contains("${output}", "liferay-json-web-services.everything.read.userprofile")) {
-			echo("Get accessToken and refreshToken successfully!");
-		}
-		else {
-			fail("Curl failed!");
-		}
-
 		Type(
 			locator1 = "OAuth2#OAUTH2_TESTER_CLIENT_SECRET",
 			value1 = "${clientSecret}");
