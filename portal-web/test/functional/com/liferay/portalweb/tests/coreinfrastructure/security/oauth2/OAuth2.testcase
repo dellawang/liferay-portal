@@ -714,7 +714,14 @@ definition {
 				-d code=${authorizationCode}
 		''';
 
-		echo("curl command ${curl}");
+		var output = JSONCurlUtil.post("${curl}"); 
+
+		if (contains("${output}", "liferay-json-web-services.everything.read.userprofile")) {
+			echo("Get accessToken and refreshToken successfully!");
+		}
+		else {
+			fail("Curl failed!");
+		}
 
 		Type(
 			locator1 = "OAuth2#OAUTH2_TESTER_CLIENT_SECRET",
@@ -737,6 +744,8 @@ definition {
 		Pause(locator1 = "17000");
 
 		Refresh();
+
+		AssertElementPresent(locator1 = "UserBar#USER_AVATAR_IMAGE");
 
 		AssertElementNotPresent(
 			key_appName = "Test Expired Application",
