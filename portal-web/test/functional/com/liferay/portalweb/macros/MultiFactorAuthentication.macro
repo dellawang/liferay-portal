@@ -114,8 +114,8 @@ definition {
 			}
 
 			SignIn._signIn(
-			userEmailAddress = "${userEmailAddress}",
-			userPassword = "${userPassword}");
+				userEmailAddress = "${userEmailAddress}",
+				userPassword = "${userPassword}");
 
 			Type(
 				locator1 = "MultiFactorAuthentication#EMAIL_OTP_VERIFY_FIELD",
