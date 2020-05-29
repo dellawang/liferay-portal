@@ -53,18 +53,6 @@ definition {
 		ProductMenu.gotoPortlet(
 			category = "Configuration",
 			panel = "Control Panel",
-			portlet = "System Settings");
-
-		SystemSettings.gotoConfiguration(
-			configurationCategory = "Multi-Factor Authentication",
-			configurationName = "Email One-Time Password Configuration",
-			configurationScope = "Virtual Instance Scope");
-
-		MultiFactorAuthentication.assertDescriptions();
-
-		ProductMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
 			portlet = "Instance Settings");
 
 		SystemSettings.gotoConfiguration(
