@@ -150,7 +150,7 @@ definition {
 
 		SystemSettings.gotoConfiguration(
 			configurationCategory = "Multi-Factor Authentication",
-			configurationName = "Email One-Time Password Configuration",
+			configurationName = "Multi-Factor Authentication: Email One-Time Password Configuration",
 			configurationScope = "Virtual Instance Scope");
 
 		MultiFactorAuthentication.configureOTP(enableOTP = "true");
