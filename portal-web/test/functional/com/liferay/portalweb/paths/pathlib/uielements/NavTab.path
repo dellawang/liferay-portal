@@ -10,7 +10,7 @@
 <tbody>
 <tr>
 	<td>ACTIVE_TAB_LINK</td>
-	<td>//*[contains(@class,'nav-link') and contains(@class,'active') and normalize-space()='${key_tab}']</td>
+	<td>//*[contains(@class,'nav-link') and contains(@class,'active') and normalize-space()='${key_tab}'] | //*[contains(@class,'nav-link') and normalize-space()='${key_tab}']</td>
 	<td></td>
 </tr>
 <tr>
