@@ -326,7 +326,9 @@ definition {
 
 		Click(locator1 = "Icon#EDIT_PENCIL");
 
-		PageEditor.addWidget(portletName = "Sign In");
+		PageEditor.addWidget(
+			portletName = "Sign In",
+			targetFragmentName = "Section");
 
 		PermissionsInline.gotoConfigurationPG(portletName = "Sign In");
 
@@ -451,7 +453,9 @@ definition {
 
 		Click(locator1 = "Icon#EDIT_PENCIL");
 
-		PageEditor.addWidget(portletName = "Web Content Display");
+		PageEditor.addWidget(
+			portletName = "Web Content Display",
+			targetFragmentName = "Section");
 
 		WebContentDisplayPortlet.selectWebContent(webContentTitle = '''<script>alert(123);</script>''');
 
