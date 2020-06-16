@@ -492,7 +492,7 @@ definition {
 			locator1 = "Button#SELECT_MOBILE_DEVICE_RULES",
 			value1 = "Select");
 
-		SelectFrame(locator1 = "IFrame#MODAL_BODY");
+		SelectFrame.selectFrameNoLoading(locator1 = "IFrame#MODAL_BODY");
 
 		var key_deviceFamilyName = "${deviceFamilyName}";
 
