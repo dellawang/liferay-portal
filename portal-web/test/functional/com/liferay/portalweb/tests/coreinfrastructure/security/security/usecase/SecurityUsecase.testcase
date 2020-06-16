@@ -285,7 +285,7 @@ out.println(PortalUtil.escapeRedirect("/"));
 	test ViewJSLoaderModulesURLNoWiki {
 		var portalURL = PropsUtil.get("portal.url");
 
-		Navigator.openSpecificURL(url = "${portalURL}/o/js_loader_modules");
+		Open.openNoError(locator1 = "${portalURL}/o/js_loader_modules");
 
 		AssertConsoleTextPresent(value1 = "com.liferay.wiki.engine.html");
 
