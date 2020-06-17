@@ -522,7 +522,7 @@ definition {
 
 		Navigator.openSpecificURL(url = "http://www.able.com:9080");
 
-		if (IsElementNotPresent(locator1 = "ProductMenu#PRODUCT_MENU_OPENED")) {
+		if (IsElementNotPresent(locator1 = "ProductMenu#PRODUCT_MENU_CLOSED")) {
 			Navigator.gotoLoginPage();
 		}
 
