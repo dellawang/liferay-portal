@@ -214,6 +214,71 @@ definition {
 			userEmailAddress = "test@liferay.com");
 	}
 
+	@description = "This is a use case for LPS-105151."
+	@priority = "4"
+	test OpenIDConnectOnInstanceLevelSmoke {
+		property dummy.socket.proxy.disabled = "true";
+		property test.name.skip.portal.instance = "Login#OpenIDConnectOnInstanceLevelSmoke";
+
+		var openIDConnectClientID = "48980943835-sk374ituib2k9ajdeobo5i7v54tt8nfe.apps.googleusercontent.com";
+		var openIDConnectClientSecret = "XWM-9_qRoQxBvFf3PUw_DTWC";
+		var userEmailAddress = PropsUtil.get("email.address.2");
+		var userPassword = PropsUtil.get("email.password.2");
+
+		User.firstLoginPG();
+
+		GlobalMenu.gotoPortlet(
+			category = "Configuration",
+			panel = "Control Panel",
+			portlet = "Virtual Instances");
+
+		PortalInstances.addCP(
+			mailDomain = "www.able.com",
+			virtualHost = "www.able.com",
+			webId = "www.able.com");
+
+		PortalInstances.viewCP(virtualHost = "www.able.com");
+
+		User.firstLoginPG(
+			password = "test",
+			userEmailAddress = "test@www.able.com",
+			virtualHostsURL = "http://www.able.com:8080");
+
+		GlobalMenu.gotoPortlet(
+			category = "Configuration",
+			panel = "Control Panel",
+			portlet = "Instance Settings");
+
+		PortalSettings.gotoConfiguration(
+			configurationCategory = "SSO",
+			configurationName = "OpenID Connect",
+			configurationScope = "Virtual Instance Scope");
+
+		PortalSettings.enableOpenIDConnectCP();
+
+		OpenIDConnect.addProviderInInstanceSettings(
+			openIDConnectClientID = "${openIDConnectClientID}",
+			openIDConnectClientSecret = "${openIDConnectClientSecret}");
+
+		UserBar.signOut();
+
+		OpenIDConnect.accountSignIn(
+			specificURL = "http://www.able.com:8080",
+			userEmailAddress = "${userEmailAddress}",
+			userPassword = "${userPassword}");
+
+		OpenIDConnect.acceptConditions();
+
+		AssertElementPresent(locator1 = "UserBar#USER_AVATAR_IMAGE");
+
+		UserBar.signOut();
+
+		User.loginUserPG(
+			password = "test",
+			specificURL = "http://www.able.com:8080",
+			userEmailAddress = "test@www.able.com");
+	}
+
 	@priority = "4"
 	test OpenIDConnectSmoke {
 		property dummy.socket.proxy.disabled = "true";
