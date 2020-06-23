@@ -1957,7 +1957,12 @@ definition {
 
 	@description = "Log into Liferay Portal as ${userEmailAddress} using the password ${password}."
 	macro loginUserPG {
-		Navigator.openURL();
+		if (isSet(specificURL)) {
+			Navigator.openSpecificURL(url = "${specificURL}");
+		}
+		else {
+			Navigator.openURL();
+		}
 
 		User._login(
 			password = "${password}",
