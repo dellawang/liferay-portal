@@ -55,24 +55,6 @@ definition {
 	}
 
 	macro addProvider {
-		if ("${configureLevel}" == "Instance") {
-			GlobalMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "Instance Settings");
-		}
-		else {
-			GlobalMenu.gotoPortlet(
-				category = "Configuration",
-				panel = "Control Panel",
-				portlet = "System Settings");
-		}
-
-		SystemSettings.gotoConfiguration(
-			configurationCategory = "SSO",
-			configurationName = "OpenID Connect Provider",
-			configurationScope = "Virtual Instance Scope");
-
 		Click(locator1 = "Button#ADD");
 
 		FormFields.editTextMultiline(

@@ -256,8 +256,17 @@ definition {
 
 		PortalSettings.enableOpenIDConnectCP();
 
+		GlobalMenu.gotoPortlet(
+			category = "Configuration",
+			panel = "Control Panel",
+			portlet = "Instance Settings");
+
+		SystemSettings.gotoConfiguration(
+			configurationCategory = "SSO",
+			configurationName = "OpenID Connect Provider",
+			configurationScope = "Virtual Instance Scope");
+
 		OpenIDConnect.addProvider(
-			configureLevel = "Instance",
 			openIDConnectClientID = "${openIDConnectClientID}",
 			openIDConnectClientSecret = "${openIDConnectClientSecret}");
 
@@ -302,6 +311,16 @@ definition {
 			configurationScope = "Virtual Instance Scope");
 
 		PortalSettings.enableOpenIDConnectCP();
+
+		GlobalMenu.gotoPortlet(
+			category = "Configuration",
+			panel = "Control Panel",
+			portlet = "System Settings");
+
+		SystemSettings.gotoConfiguration(
+			configurationCategory = "SSO",
+			configurationName = "OpenID Connect Provider",
+			configurationScope = "Virtual Instance Scope");
 
 		OpenIDConnect.addProvider(
 			openIDConnectClientID = "${openIDConnectClientID}",
