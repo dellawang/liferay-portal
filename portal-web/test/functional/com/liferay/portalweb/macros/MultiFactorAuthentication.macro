@@ -25,11 +25,6 @@ definition {
 			key_fieldName = "retryTimeout",
 			locator1 = "MultiFactorAuthentication#EMAIL_OTP_CONFIG_TEXT",
 			value1 = "Set the time in seconds to block requests after reaching the limit for failed attempts allowed.");
-
-		AssertTextEquals(
-			key_fieldName = "validationExpirationTime",
-			locator1 = "MultiFactorAuthentication#EMAIL_OTP_CONFIG_TEXT",
-			value1 = "Set the time in seconds until session validations expire.");
 	}
 
 	macro configureIPAddress {
