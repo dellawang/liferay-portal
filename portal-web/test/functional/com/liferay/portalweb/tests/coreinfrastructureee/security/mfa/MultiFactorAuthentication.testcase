@@ -382,7 +382,7 @@ definition {
 		User.loginPG();
 
 		GlobalMenu.gotoPortlet(
-			category = "Configuration",
+			category = "Security",
 			panel = "Control Panel",
 			portlet = "Audit");
 
