@@ -21,7 +21,12 @@ definition {
 	}
 
 	macro accountSignIn {
-		Navigator.openURL();
+		if (isSet(specificURL)) {
+			Navigator.openSpecificURL(url = "${specificURL}");
+		}
+		else {
+			Navigator.openURL();
+		}
 
 		AssertClick(
 			locator1 = "UserBar#USER_SIGN_IN",
@@ -49,11 +54,19 @@ definition {
 		}
 	}
 
-	macro addProviderInSystemSettings {
-		GlobalMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "System Settings");
+	macro addProvider {
+		if ("${configureLevel}" == "Instance") {
+			GlobalMenu.gotoPortlet(
+				category = "Configuration",
+				panel = "Control Panel",
+				portlet = "Instance Settings");
+		}
+		else {
+			GlobalMenu.gotoPortlet(
+				category = "Configuration",
+				panel = "Control Panel",
+				portlet = "System Settings");
+		}
 
 		SystemSettings.gotoConfiguration(
 			configurationCategory = "SSO",
