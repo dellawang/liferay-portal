@@ -81,7 +81,7 @@ definition {
 
 		MultiFactorAuthentication.emailOTPConfiguration(
 			failedAttemptsAllowed = "1",
-			retryTimeout = "120");
+			retryTimeout = "5");
 
 		SignOut.signOut();
 
@@ -98,13 +98,11 @@ definition {
 			userPassword = "test",
 			validOTP = "false");
 
-		MultiFactorAuthentication.verifyOTP(
-			portalURL = "${portalURL}",
-			recipient = "Test Test",
-			userEmailAddress = "test@liferay.com",
-			userPassword = "test");
+		AssertElementPresent(
+			key_fieldName = "emailOTPSentSubject",
+			locator1 = "MultiFactorAuthentication#EMAIL_OTP_ATTEMPTS_FAILED");
 
-		MultiFactorAuthentication.sendOTPEmailPG();
+		Pause(locator1 = "5000");
 
 		MultiFactorAuthentication.verifyOTP(
 			portalURL = "${portalURL}",
