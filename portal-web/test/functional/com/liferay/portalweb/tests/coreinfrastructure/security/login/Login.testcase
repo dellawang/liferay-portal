@@ -112,7 +112,6 @@ definition {
 		AssertLocation(value1 = "${portalURL}/web/guest/landing");
 	}
 
-	@ignore = "true"
 	@priority = "4"
 	test FacebookSSOSmoke {
 		property dummy.socket.proxy.disabled = "true";
@@ -340,7 +339,6 @@ definition {
 			userEmailAddress = "test@liferay.com");
 	}
 
-	@ignore = "true"
 	@priority = "4"
 	test OpenIDSmoke {
 		property dummy.socket.proxy.disabled = "true";
@@ -391,7 +389,6 @@ definition {
 			userFirstName = "userfn");
 	}
 
-	@ignore = "true"
 	@priority = "5"
 	test OpenSSOSmoke {
 		property dummy.socket.proxy.disabled = "true";
