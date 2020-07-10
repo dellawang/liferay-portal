@@ -339,6 +339,7 @@ definition {
 			userEmailAddress = "test@liferay.com");
 	}
 
+	@ignore = "true"
 	@priority = "4"
 	test OpenIDSmoke {
 		property dummy.socket.proxy.disabled = "true";
@@ -389,6 +390,7 @@ definition {
 			userFirstName = "userfn");
 	}
 
+	@ignore = "true"
 	@priority = "5"
 	test OpenSSOSmoke {
 		property dummy.socket.proxy.disabled = "true";
