@@ -38,6 +38,21 @@ definition {
 			value1 = "${searchTerm}");
 	}
 
+	macro searchViaKeywords {
+		AssertElementPresent(locator1 = "TextInput#SITE_SEARCH_KEYWORDS");
+
+		Type(
+			locator1 = "TextInput#SITE_SEARCH_KEYWORDS",
+			value1 = "${searchTerm}");
+
+		Click(locator1 = "Button#SUBMIT");
+
+		AssertElementPresent(
+			key_resourceAction = "${searchTerm}",
+			key_resourceName = "${resourceName}",
+			locator1 = "AuditReports#REPORTS_TABLE_RESOURCE_NAME");
+	}
+
 	macro viewAuditDetails {
 		var key_resourceAction = "${resourceAction}";
 		var key_resourceName = "${resourceName}";
