@@ -464,7 +464,7 @@ definition {
 
 		PortalSettings.gotoConfiguration(
 			configurationCategory = "Multi-Factor Authentication",
-			configurationName = "Multi-Factor Authentication: Email One-Time Password Configuration",
+			configurationName = "Multi-Factor Authentication and Email One-Time Password Configuration",
 			configurationScope = "Virtual Instance Scope");
 
 		MultiFactorAuthentication.configureOTP(enableOTP = "true");
