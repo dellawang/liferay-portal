@@ -384,8 +384,8 @@ definition {
 			panel = "Control Panel",
 			portlet = "Audit");
 
-		Audit.searchCP(
-			resourceAction = "MFA_IP_OTP_VERIFICATION_SUCCESS",
+		Audit.searchViaKeywords(
+			resourceName = "IPAddressHeadlessMFAChecker",
 			searchTerm = "MFA_IP_OTP_VERIFICATION_SUCCESS",
 			userName = "Test Test");
 
