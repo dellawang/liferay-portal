@@ -348,7 +348,7 @@ definition {
 	@priority = "5"
 	test LoginWithIPBasedVerifierEnabled {
 		property test.name.skip.portal.instance = "MultiFactorAuthentication#LoginWithIPBasedVerifierEnabled";
-		
+
 		var portalURL = PropsUtil.get("portal.url");
 
 		PortalSettings.gotoConfiguration(
@@ -420,13 +420,13 @@ definition {
 			userPassword = "test");
 
 		GlobalMenu.gotoPortlet(
-			category = "Configuration",
+			category = "Security",
 			panel = "Control Panel",
 			portlet = "Audit");
 
-		Audit.searchCP(
-			resourceAction = "MFA_IP_OTP_VERIFICATION_FAILURE",
-			searchTerm = "MFA_IP_OTP_VERIFICATION_FAILURE",
+		Audit.searchViaKeywords(
+			resourceName = "IPAddressHeadlessMFAChecker",
+			searchTerm = "MFA_IP_OTP_VERIFICATION_SUCCESS",
 			userName = "Test Test");
 
 		Audit.viewAuditDetails(
