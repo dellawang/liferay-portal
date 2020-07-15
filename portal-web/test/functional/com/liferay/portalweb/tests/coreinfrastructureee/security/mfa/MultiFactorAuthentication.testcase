@@ -347,6 +347,8 @@ definition {
 	@description = "This is a use case for LPS-101746"
 	@priority = "5"
 	test LoginWithIPBasedVerifierEnabled {
+		property test.name.skip.portal.instance = "MultiFactorAuthentication#LoginWithIPBasedVerifierEnabled";
+		
 		var portalURL = PropsUtil.get("portal.url");
 
 		PortalSettings.gotoConfiguration(
