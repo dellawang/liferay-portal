@@ -219,8 +219,8 @@ definition {
 		property dummy.socket.proxy.disabled = "true";
 		property test.name.skip.portal.instance = "Login#OpenIDConnectOnInstanceLevelSmoke";
 
-		var openIDConnectClientID = PropsUtil.get("google.client.id.4");
-		var openIDConnectClientSecret = PropsUtil.get("google.client.secret.4");
+		var openIDConnectClientID = PropsUtil.get("google.client.id.1");
+		var openIDConnectClientSecret = PropsUtil.get("google.client.secret.1");
 		var userEmailAddress = PropsUtil.get("email.address.2");
 		var userPassword = PropsUtil.get("email.password.2");
 
