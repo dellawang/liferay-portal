@@ -426,7 +426,7 @@ definition {
 
 		Audit.searchViaKeywords(
 			resourceName = "IPAddressHeadlessMFAChecker",
-			searchTerm = "MFA_IP_OTP_VERIFICATION_SUCCESS",
+			searchTerm = "MFA_IP_OTP_VERIFICATION_FAILURE",
 			userName = "Test Test");
 
 		Audit.viewAuditDetails(
