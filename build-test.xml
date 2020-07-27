@@ -7930,6 +7930,27 @@ ${update.properties}</echo>
 		<apply-portal-ext-properties />
 	</target>
 
+	<target name="prepare-antisamy-config-file">
+		<property name="liferay.dependency.dir" value="${project.dir}/portal-web/test/functional/com/liferay/portalweb/dependencies" />
+
+		<property name="liferay.dependency.xml" value="my-file-name-sanitizer-configuration.xml" />
+
+		<if>
+			<available file="${liferay.dependency.dir}/${liferay.dependency.xml}" />
+			<then>
+				<echo>Copying ${liferay.dependency.dir}/${liferay.dependency.xml} to ${project.dir}/modules/apps/portal-security/portal-security-antisamy/src/main/resources/META-INF/resources/${liferay.dependency.xml}.</echo>
+
+				<copy
+					file="${liferay.dependency.dir}/${liferay.dependency.xml}"
+   					todir="${project.dir}/modules/apps/portal-security/portal-security-antisamy/src/main/resources/META-INF/resources/${liferay.dependency.xml}"
+   				/>
+   			</then>
+   			<else>
+				<echo>The file ${liferay.dependency.xml} is not exist.</echo>
+			</else>
+   		</if>
+	</target>
+
 	<target name="prepare-encryption-PCKS12-certificate">
 		<if>
 			<equals arg1="${app.server.type}" arg2="tomcat" />
@@ -12513,6 +12534,19 @@ module.framework.properties.blacklist.portal.profile.names=${blacklist.portal.pr
 		<!--
 		Deploy project samples to the deploy directory.
 		-->
+
+	<get-testcase-property property.name="antisamy.enabled" />
+
+		<if>
+			<equals arg1="${antisamy.enabled}" arg2="true" />
+			<then>
+				<antcall target="prepare-antisamy-config-file" />
+
+				<gradle-execute dir="${project.dir}/modules/apps/portal-security/portal-security-antisamy" task="deploy">
+					<arg value="clean" />
+				</gradle-execute>
+			</then>
+		</if>
 
 		<get-testcase-property property.name="cas.enabled" />
 
