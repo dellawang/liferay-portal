@@ -547,12 +547,12 @@ definition {
 			value1 = "Scopes");
 
 		AssertElementPresent(
-			locator1 = "NavUnderline#NAV_UNDERLINE_LINK",
-			key_navUnderline = "Resource scopes");
+			key_navUnderline = "Resource scopes",
+			locator1 = "NavUnderline#NAV_UNDERLINE_LINK");
 
 		AssertElementPresent(
-			locator1 = "NavUnderline#NAV_UNDERLINE_LINK",
-			key_navUnderline = "Global scopes");
+			key_navUnderline = "Global scopes",
+			locator1 = "NavUnderline#NAV_UNDERLINE_LINK");
 
 		ApplicationsMenu.gotoPortlet(
 			category = "System",
@@ -597,9 +597,9 @@ definition {
 			value1 = "Scopes");
 
 		AssertElementNotPresent(
-			locator1 = "NavUnderline#NAV_UNDERLINE_LINK",
-			key_navUnderline = "Resource scopes");
-		
+			key_navUnderline = "Resource scopes",
+			locator1 = "NavUnderline#NAV_UNDERLINE_LINK");
+
 		for (var resourcePanel : list "Bulk Processing,Content Delivery,Dynamic Data Lists,Forms,Portal Services,Taxonomy Administration,User Administration,Workflow Administration") {
 
 			AssertHTMLSourceTextNotPresent(value1 = "${resourcePanel}");
@@ -846,6 +846,58 @@ definition {
 			locator1 = "OAuth2#USER_CONNECTED_APP_TABLE_NAME");
 	}
 
+	@description = "This is a use case for LPS-105158."
+	@priority = "4"
+	test ScopesDisplayAsListOnInstanceLevel {
+		property test.name.skip.portal.instance = "OAuth2#ScopesDisplayAsListOnInstanceLevel";
+
+		ApplicationsMenu.gotoPortlet(
+			category = "System",
+			panel = "Control Panel",
+			portlet = "Virtual Instances");
+
+		PortalInstances.addCP(
+			mailDomain = "www.able.com",
+			virtualHost = "www.able.com",
+			webId = "www.able.com");
+
+		PortalInstances.viewCP(virtualHost = "www.able.com");
+
+		User.firstLoginPG(
+			password = "test",
+			userEmailAddress = "test@www.able.com",
+			virtualHostsURL = "http://www.able.com:8080");
+
+		ApplicationsMenu.gotoPortlet(
+			category = "Users",
+			panel = "Control Panel",
+			portlet = "Users and Organizations");
+
+		User.unassignRegularRoleCP(
+			regularRoleName = "Power User",
+			userScreenName = "test");
+
+		Navigator.openSpecificURL(url = "http://www.able.com:8080");
+
+		ApplicationsMenu.gotoPortlet(
+			category = "Security",
+			panel = "Control Panel",
+			portlet = "OAuth 2 Administration");
+
+		LexiconEntry.gotoEntryMenuItem(
+			menuItem = "Edit",
+			rowEntry = "Analytics Cloud");
+
+		AssertClick(
+			key_navItem = "Scopes",
+			locator1 = "NavBar#NAV_ITEM_LINK",
+			value1 = "Scopes");
+
+		AssertElementNotPresent(
+			key_panel = "Analytics",
+			locator1 = "OAuth2#ADMIN_RESOURCE_PANEL_COLLAPSED");
+	}
+
 	test UpdateScopeBundlePrefixes {
 		property liferay.dependency.jars = "com.liferay.oauth2.provider.scope.sample.qa.jar";
 
@@ -938,58 +990,6 @@ definition {
 			scopeTranslation = "Example scope 1 + Example scope 2");
 
 		AssertElementNotPresent(locator1 = "xpath=(//a[contains(.,'Sample QA app')]//following-sibling::div//li)[2]");
-	}
-
-	@description = "This is a use case for LPS-105158."
-	@priority = "4"
-	test ScopesDisplayAsListOnInstanceLevel {
-		property test.name.skip.portal.instance = "OAuth2#ScopesDisplayAsListOnInstanceLevel";
-
-		ApplicationsMenu.gotoPortlet(
-			category = "System",
-			panel = "Control Panel",
-			portlet = "Virtual Instances");
-
-		PortalInstances.addCP(
-			mailDomain = "www.able.com",
-			virtualHost = "www.able.com",
-			webId = "www.able.com");
-
-		PortalInstances.viewCP(virtualHost = "www.able.com");
-
-		User.firstLoginPG(
-			password = "test",
-			userEmailAddress = "test@www.able.com",
-			virtualHostsURL = "http://www.able.com:8080");
-
-		ApplicationsMenu.gotoPortlet(
-			category = "Users",
-			panel = "Control Panel",
-			portlet = "Users and Organizations");
-
-		User.unassignRegularRoleCP(
-			regularRoleName = "Power User",
-			userScreenName = "test");
-
-		Navigator.openSpecificURL(url = "http://www.able.com:8080");
-
-		ApplicationsMenu.gotoPortlet(
-			category = "Security",
-			panel = "Control Panel",
-			portlet = "OAuth 2 Administration");
-
-		LexiconEntry.gotoEntryMenuItem(
-			menuItem = "Edit",
-			rowEntry = "Analytics Cloud");
-
-		AssertClick(
-			key_navItem = "Scopes",
-			locator1 = "NavBar#NAV_ITEM_LINK",
-			value1 = "Scopes");
-
-		AssertElementNotPresent(
-			key_panel = "Analytics",
-			locator1 = "OAuth2#ADMIN_RESOURCE_PANEL_COLLAPSED");
 	}
 
 	test ViewAndRevokeGrantedAuthorizations {
