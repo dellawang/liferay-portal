@@ -62,7 +62,8 @@ definition {
 	@priority = "5"
 	test BlockedAfterReachAllowedFailedAttempts {
 		property database.types = "db2,hypersonic,mariadb,mysql,oracle,postgresql,sqlserver,sybase";
-		property test.name.skip.portal.instance = "MultiFactorAuthentication#BlockedAfterReachAllowedFailedAttempts";
+
+		var portalURL = PropsUtil.get("portal.url");
 
 		PortalSettings.gotoConfiguration(
 			configurationCategory = "Multi-Factor Authentication",
@@ -88,8 +89,6 @@ definition {
 		SignIn.signIn(userEmailAddress = "test@liferay.com");
 
 		MultiFactorAuthentication.sendOTPEmailPG();
-
-		var portalURL = PropsUtil.get("portal.url");
 
 		MultiFactorAuthentication.verifyOTP(
 			portalURL = "${portalURL}",
@@ -360,7 +359,6 @@ definition {
 	@priority = "5"
 	test LoginSuccessfulAfterRetryTimeout {
 		property database.types = "db2,hypersonic,mariadb,mysql,oracle,postgresql,sqlserver,sybase";
-		property test.name.skip.portal.instance = "MultiFactorAuthentication#LoginSuccessfulAfterRetryTimeout";
 
 		var portalURL = PropsUtil.get("portal.url");
 

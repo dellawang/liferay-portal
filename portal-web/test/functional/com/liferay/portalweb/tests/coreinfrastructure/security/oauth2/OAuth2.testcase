@@ -109,8 +109,6 @@ definition {
 	}
 
 	test AddAndEditOAuthSAPEntries {
-		property test.name.skip.portal.instance = "OAuth2#AddAndEditOAuthSAPEntries";
-
 		ApplicationsMenu.gotoPortlet(
 			category = "Security",
 			panel = "Control Panel",
@@ -326,7 +324,6 @@ definition {
 	@priority = "4"
 	test AssertClientCredentialsIsUserScoped {
 		property portal.upstream = "quarantine";
-		property test.name.skip.portal.instance = "OAuth2#AssertClientCredentialsIsUserScoped";
 
 		JSONWebcontent.addWebContent(
 			content = "WC Content",
@@ -1071,7 +1068,6 @@ definition {
 		property custom.properties = "virtual.hosts.default.site.name=Guest";
 		property osgi.module.configuration.file.names = "com.liferay.oauth2.provider.scope.internal.configuration.BundlePrefixHandlerFactoryConfiguration-default.config";
 		property osgi.module.configurations = "include.bundle.symbolic.name=&quot;false&quot;${line.separator}osgi.jaxrs.name=&quot;Default&quot;${line.separator}separator=&quot;&quot;${line.separator}service.properties=&quot;&quot;";
-		property test.name.skip.portal.instance = "OAuth2#ViewAuthPromptRequestedScopes";
 
 		ApplicationsMenu.gotoPortlet(
 			category = "Security",
