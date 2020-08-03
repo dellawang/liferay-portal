@@ -7979,11 +7979,11 @@ ${update.properties}</echo>
 					<replacetoken><![CDATA[<directive name="allowDynamicAttributes" value="true"/>]]></replacetoken>
 					<replacevalue><![CDATA[<!--<directive name="allowDynamicAttributes" value="true"/>-->]]></replacevalue>
 				</replace>
-   			</then>
-   			<else>
+			</then>
+			<else>
 				<echo>The file ${liferay.config.xml} is not exist.</echo>
 			</else>
-   		</if>
+		</if>
 	</target>
 
 	<target name="prepare-encryption-PCKS12-certificate">
@@ -12570,7 +12570,7 @@ module.framework.properties.blacklist.portal.profile.names=${blacklist.portal.pr
 		Deploy project samples to the deploy directory.
 		-->
 
-	<get-testcase-property property.name="antisamy.enabled" />
+		<get-testcase-property property.name="antisamy.enabled" />
 
 		<if>
 			<equals arg1="${antisamy.enabled}" arg2="true" />
