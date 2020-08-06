@@ -101,6 +101,31 @@ definition {
 		AssertTextEquals.assertValue(
 			locator1 = "CKEditor#BODY_SOURCE_VALUE",
 			value1 = "<p>Hello Liferay</p>");
+
+		Navigator.openURL();
+
+		ApplicationsMenu.gotoPortlet(
+			category = "Configuration",
+			panel = "Control Panel",
+			portlet = "System Settings");
+
+		SystemSettings.gotoConfiguration(
+			configurationCategory = "Security Tools",
+			configurationName = "AntiSamy Sanitizer by Class Name",
+			configurationScope = "System Scope");
+
+		LexiconEntry.gotoEntryMenuItem(
+			menuItem = "Edit",
+			rowEntry = "com.liferay.knowledge.base.model.KBArticle");
+
+		Type(
+			key_label = "Configuration File URL",
+			locator1 = "TextArea#ANY_LABELED",
+			value1 = "/META-INF/knowledge-base-sanitizer-configuration.xml");
+
+		SystemSettings.saveConfiguration();
+
+		AssertElementNotPresent(locator1 = "Message#SUCCESS");
 	}
 
 	@priority = "4"
