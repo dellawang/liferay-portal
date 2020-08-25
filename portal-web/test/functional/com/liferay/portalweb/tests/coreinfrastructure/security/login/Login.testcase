@@ -183,6 +183,7 @@ definition {
 		AssertElementPresent(locator1 = "Icon#OPENID_CONNECT");
 	}
 
+	@ignore = "true"
 	@priority = "4"
 	test FacebookSSOSmoke {
 		property dummy.socket.proxy.disabled = "true";
