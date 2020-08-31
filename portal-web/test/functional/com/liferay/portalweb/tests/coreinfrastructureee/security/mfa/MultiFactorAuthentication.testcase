@@ -843,7 +843,7 @@ definition {
 			configurationName = "Time-Based One-Time Password Configuration",
 			configurationScope = "Virtual Instance Scope");
 
-		MultiFactorAuthentication.configureTOTP(enableIP = "true");		
+		MultiFactorAuthentication.configureTOTP(enableIP = "true");
 
 		UserBar.gotoDropdownItem(dropdownItem = "Account Settings");
 
