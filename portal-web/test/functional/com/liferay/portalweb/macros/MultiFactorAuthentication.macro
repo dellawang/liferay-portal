@@ -189,7 +189,7 @@ definition {
 		var encodedText = selenium.getAttribute("//input[contains(@id,'sharedSecret')]@value");
 
 		var totp = AuthenticationUtil.generateTOTP("${encodedText}");
-		
+
 		Type(
 			locator1 = "MultiFactorAuthentication#TOTP_FIELD",
 			value1 = "${totp}");
