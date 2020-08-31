@@ -195,6 +195,10 @@ definition {
 			value1 = "${totp}");
 
 		Click(locator1 = "MultiFactorAuthentication#TOTP_SUBMIT_BUTTON");
+
+		AssertElementPresent(
+			key_text = "Remove Configured Time-Based One-Time Password",
+			locator1 = "Button#ANY");
 	}
 
 	macro sendOTPEmailPG {
