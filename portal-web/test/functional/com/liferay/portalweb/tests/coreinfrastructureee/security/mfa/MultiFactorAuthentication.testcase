@@ -768,7 +768,7 @@ definition {
 	@priority = "5"
 	test RemoveAndAutoGenerateTOTP {
 		property test.name.skip.portal.instance = "MultiFactorAuthentication#RemoveAndAutoGenerateTOTP";
-		
+
 		ApplicationsMenu.gotoPortlet(
 			category = "System",
 			panel = "Control Panel",
