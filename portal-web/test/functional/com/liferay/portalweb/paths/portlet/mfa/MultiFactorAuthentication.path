@@ -87,6 +87,22 @@
 	<td>xpath=(//textarea[contains(@name,'allowedIPAddress')])[1]</td>
 	<td></td>
 </tr>
+<!--TIME_BASED_ONE_TIME_PASSWORD_CONFIGURATION-->
+<tr>
+	<td>TOTP_SUBMIT_BUTTON</td>
+	<td>//button[contains(@class,'btn-primary')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>TOTP_FIELD</td>
+	<td>//input[contains(@id,"mfaTimeBasedOTP")]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>TOTP_SHARED_SECRET_FIELD</td>
+	<td>//input[contains(@id,"sharedSecret")]</td>
+	<td></td>
+</tr>
 </tbody>
 </table>
 </body>
