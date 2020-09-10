@@ -123,6 +123,21 @@ definition {
 		}
 	}
 
+	macro configureTOTP {
+		if ("${enableOTP}" == "true") {
+			FormFields.enableCheckbox(fieldName = "enabled");
+		}
+		else if ("${enableOTP}" == "false") {
+			FormFields.disableCheckbox(fieldName = "enabled");
+		}
+		if (IsElementPresent(locator1 = "Button#UPDATE")) {
+			PortletEntry.update();
+		}
+		else if (IsElementPresent(locator1 = "Button#SAVE")) {
+			PortletEntry.save();
+		}
+	}
+
 	macro emailOTPConfiguration {
 		var failedAttemptsAllowed = "${failedAttemptsAllowed}";
 
@@ -166,6 +181,24 @@ definition {
 		else if (IsElementPresent(locator1 = "Button#SAVE")) {
 			PortletEntry.save();
 		}
+	}
+
+	macro getTOTP {
+		VerifyElementPresent(locator1 = "MultiFactorAuthentication#TOTP_FIELD");
+
+		var secretKey = selenium.getAttribute("//input[contains(@id,'sharedSecret')]@value");
+
+		var totp = AuthenticationUtil.generateTimeBasedOTP("${secretKey}");
+
+		Type(
+			locator1 = "MultiFactorAuthentication#TOTP_FIELD",
+			value1 = "${totp}");
+
+		Click(locator1 = "MultiFactorAuthentication#TOTP_SUBMIT_BUTTON");
+
+		AssertElementPresent(
+			key_text = "Remove Configured Time-Based One-Time Password",
+			locator1 = "Button#ANY");
 	}
 
 	macro sendOTPEmailPG {
