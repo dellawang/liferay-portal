@@ -36,7 +36,6 @@ definition {
 		property portal.version = "7.2.1";
 
 		Upgrade.viewLDAPConfiguration();
-
 	}
 
 	@priority = "5"
@@ -54,4 +53,5 @@ definition {
 
 		Upgrade.viewLDAPConfiguration();
 	}
+
 }
