@@ -60,4 +60,5 @@ definition {
 			filter = "(&((liferay.cors=true))(osgi.jaxrs.name=*))",
 			urlPattern = "/api/*/test");
 	}
+
 }
