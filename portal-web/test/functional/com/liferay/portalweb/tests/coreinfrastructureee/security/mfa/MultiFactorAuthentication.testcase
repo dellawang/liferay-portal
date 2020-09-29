@@ -878,7 +878,7 @@ definition {
 
 		SignIn.signIn(userEmailAddress = "test@liferay.com");
 
-		AssertElementPresent(locator1 = "MultiFactorAuthentication#TOTP_VERIFY_FIELD");
+		AssertElementPresent(locator1 = "MultiFactorAuthentication#TOTP_FIELD");
 	}
 
 	@description = "This is a use case for LPS-89360"
