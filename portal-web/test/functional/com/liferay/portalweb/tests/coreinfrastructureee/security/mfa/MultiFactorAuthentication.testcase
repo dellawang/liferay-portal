@@ -838,7 +838,7 @@ definition {
 
 		SignOut.signOut();
 
-		SignIn.signIn(userEmailAddress = "test@liferay.com");		
+		SignIn.signIn(userEmailAddress = "test@liferay.com");
 
 		PortalSettings.gotoConfiguration(
 			configurationCategory = "Multi-Factor Authentication",
@@ -852,7 +852,7 @@ definition {
 			configurationName = "Time-Based One-Time Password Configuration",
 			configurationScope = "Virtual Instance Scope");
 
-		MultiFactorAuthentication.configureTOTP(enableTOTP= "true");
+		MultiFactorAuthentication.configureTOTP(enableTOTP = "true");
 
 		UserBar.gotoDropdownItem(dropdownItem = "Account Settings");
 
