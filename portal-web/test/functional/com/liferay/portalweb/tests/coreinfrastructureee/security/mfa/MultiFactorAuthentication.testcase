@@ -798,7 +798,7 @@ definition {
 			configurationName = "Time-Based One-Time Password Configuration",
 			configurationScope = "Virtual Instance Scope");
 
-		MultiFactorAuthentication.configureTOTP(enableIP = "true");
+		MultiFactorAuthentication.configureTOTP(enableTOTP = "true");
 
 		Navigator.openSpecificURL(url = "http://www.able.com:8080");
 
@@ -819,17 +819,26 @@ definition {
 	@description = "This is a use case for LPS-115566"
 	@priority = "4"
 	test RemoveCurrentTOTPWontAffectOthers {
+		var portalURL = PropsUtil.get("portal.url");
+
 		JSONUser.addUser(
 			userEmailAddress = "userea@liferay.com",
 			userFirstName = "userfn",
 			userLastName = "userln",
 			userScreenName = "usersn");
 
-		User.openUsersAdmin();
+		ApplicationsMenu.gotoPortlet(
+			category = "Users",
+			panel = "Control Panel",
+			portlet = "Users and Organizations");
 
 		User.editPasswordCP(
 			userEmailAddress = "userea@liferay.com",
 			userScreenName = "usersn");
+
+		SignOut.signOut();
+
+		SignIn.signIn(userEmailAddress = "test@liferay.com");		
 
 		PortalSettings.gotoConfiguration(
 			configurationCategory = "Multi-Factor Authentication",
@@ -843,7 +852,7 @@ definition {
 			configurationName = "Time-Based One-Time Password Configuration",
 			configurationScope = "Virtual Instance Scope");
 
-		MultiFactorAuthentication.configureTOTP(enableIP = "true");
+		MultiFactorAuthentication.configureTOTP(enableTOTP= "true");
 
 		UserBar.gotoDropdownItem(dropdownItem = "Account Settings");
 

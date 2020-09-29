@@ -124,12 +124,13 @@ definition {
 	}
 
 	macro configureTOTP {
-		if ("${enableOTP}" == "true") {
+		if ("${enableTOTP}" == "true") {
 			FormFields.enableCheckbox(fieldName = "enabled");
 		}
-		else if ("${enableOTP}" == "false") {
+		else if ("${enableTOTP}" == "false") {
 			FormFields.disableCheckbox(fieldName = "enabled");
 		}
+
 		if (IsElementPresent(locator1 = "Button#UPDATE")) {
 			PortletEntry.update();
 		}
