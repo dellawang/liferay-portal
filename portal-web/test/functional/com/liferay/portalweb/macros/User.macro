@@ -750,7 +750,7 @@ definition {
 				locator1 = "TextInput#REMINDER_QUERY",
 				value1 = "test");
 
-			Click(locator1 = "Button#SUBMIT");
+			Click(locator1 = "Button#SAVE");
 		}
 	}
 
