@@ -1185,7 +1185,7 @@ definition {
 			userName = "Test Test");
 
 		Audit.searchViaKeywords(
-			resourceName = "EmailOTPBrowserMFACheckerr",
+			resourceName = "EmailOTPBrowserMFAChecker",
 			searchTerm = "MFA_EMAIL_OTP_NOT_VERIFIED",
 			userName = "Test Test");
 	}
