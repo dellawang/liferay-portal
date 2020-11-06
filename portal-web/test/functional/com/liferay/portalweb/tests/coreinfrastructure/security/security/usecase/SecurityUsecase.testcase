@@ -269,7 +269,7 @@ out.println(PortalUtil.escapeRedirect("/"));
 			portlet = "Blogs");
 
 		LAR.importPortlet(
-			importSchemaVersionMismatching = "true",
+			failureExpected = "true",
 			larFileName = "blogs-remote-code-execution.lar",
 			portletName = "Blogs",
 			uploadFrom = "dependencies");
