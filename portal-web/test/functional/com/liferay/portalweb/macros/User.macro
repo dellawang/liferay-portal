@@ -2057,8 +2057,6 @@ definition {
 
 		AssertConfirm.assertPartialConfirmation(value1 = "www.facebook.com");
 
-		Notifications.acceptRequest(requestsTitle = "www.Facebook.com wants to");
-
 		SelectWindow(locator1 = "title=Log into Facebook | Facebook");
 
 		Type(
