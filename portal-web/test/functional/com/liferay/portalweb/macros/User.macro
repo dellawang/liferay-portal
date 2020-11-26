@@ -2055,6 +2055,8 @@ definition {
 			locator1 = "Link#FACEBOOK",
 			value1 = "Facebook");
 
+		Confirm();
+
 		SelectWindow(locator1 = "title=Log into Facebook | Facebook");
 
 		Type(
