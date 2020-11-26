@@ -2055,8 +2055,6 @@ definition {
 			locator1 = "Link#FACEBOOK",
 			value1 = "Facebook");
 
-		AssertConfirm.assertPartialConfirmation(value1 = "www.facebook.com");
-
 		SelectWindow(locator1 = "title=Log into Facebook | Facebook");
 
 		Type(
