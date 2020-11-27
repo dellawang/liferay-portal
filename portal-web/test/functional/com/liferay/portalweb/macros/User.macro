@@ -2075,7 +2075,7 @@ definition {
 
 			Pause(locator1 = "20000");
 		}
-		else (IsElementPresent.pauseIsElementPresent(locator1 = "TextInput#EMAIL_ADDRESS")) {
+		else if (IsElementPresent.pauseIsElementPresent(locator1 = "TextInput#EMAIL_ADDRESS")) {
 			SelectWindow.selectWindowNoSPARefresh(locator1 = "title=Terms of Use");
 
 			if (IsElementPresent.pauseIsElementPresent(
