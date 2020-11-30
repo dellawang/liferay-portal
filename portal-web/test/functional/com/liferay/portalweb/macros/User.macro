@@ -2067,11 +2067,13 @@ definition {
 
 		Click(locator1 = "FacebookLogin#LOGIN_BUTTON");
 
+		Pause(locator1 = "50000");
+
 		if (IsElementPresent(locator1 = "Button#SUBMIT")) {
 
 			Click(locator1 = "Button#SUBMIT");
 
-			Pause(locator1 = "20000");
+			Pause(locator1 = "30000");
 		}
 
 		SelectWindow.selectWindowTopNoSPARefresh();
