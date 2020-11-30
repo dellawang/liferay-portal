@@ -2085,7 +2085,7 @@ definition {
 					value1 = "I Agree");
 			}
 
-			if (IsElementPresent.pauseIsElementPresent(locator1 = "TextInput#PASSWORD")) {
+			if (IsElementPresent.pauseIsElementPresent(locator1 = "TextInput#ENTER_AGAIN")) {
 				if ((isSet(syntaxCheckingEnabled)) && ("${syntaxCheckingEnabled}" == "true")) {
 					Type(
 						locator1 = "TextInput#PASSWORD",
