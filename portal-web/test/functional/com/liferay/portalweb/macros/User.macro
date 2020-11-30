@@ -2067,8 +2067,6 @@ definition {
 
 		Click(locator1 = "FacebookLogin#LOGIN_BUTTON");
 
-		SelectWindow.selectWindowTopNoSPARefresh();
-
 		if (IsElementPresent(locator1 = "Button#SUBMIT")) {
 
 			Click(locator1 = "Button#SUBMIT");
@@ -2076,7 +2074,11 @@ definition {
 			Pause(locator1 = "20000");
 		}
 
+		SelectWindow.selectWindowTopNoSPARefresh();
+
 		if (IsElementPresent.pauseIsElementPresent(locator1 = "TextInput#EMAIL_ADDRESS")) {
+			SelectWindow.selectWindowNoSPARefresh(locator1 = "title=Terms of Use");
+
 			if (IsElementPresent.pauseIsElementPresent(
 					locator1 = "Button#I_AGREE",
 					value1 = "I Agree")) {
@@ -2085,7 +2087,7 @@ definition {
 					value1 = "I Agree");
 			}
 
-			if (IsElementPresent.pauseIsElementPresent(locator1 = "TextInput#ENTER_AGAIN")) {
+			if (IsElementPresent.pauseIsElementPresent(locator1 = "TextInput#PASSWORD")) {
 				if ((isSet(syntaxCheckingEnabled)) && ("${syntaxCheckingEnabled}" == "true")) {
 					Type(
 						locator1 = "TextInput#PASSWORD",
