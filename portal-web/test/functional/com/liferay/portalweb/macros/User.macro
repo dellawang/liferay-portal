@@ -2067,18 +2067,18 @@ definition {
 
 		Click(locator1 = "FacebookLogin#LOGIN_BUTTON");
 
-		Pause(locator1 = "50000");
+		Pause(locator1 = "30000");
 
 		if (IsElementPresent(locator1 = "Button#SUBMIT")) {
 
 			Click(locator1 = "Button#SUBMIT");
 
-			Pause(locator1 = "30000");
+			Pause(locator1 = "20000");
 		}
 
 		SelectWindow.selectWindowTopNoSPARefresh();
 
-		if (IsElementPresent.pauseIsElementPresent(locator1 = "TextInput#EMAIL_ADDRESS")) {
+		if (IsElementPresent.pauseIsElementPresent(locator1 = "Button#I_AGREE")) {
 			SelectWindow.selectWindowNoSPARefresh(locator1 = "title=Terms of Use");
 
 			if (IsElementPresent.pauseIsElementPresent(
