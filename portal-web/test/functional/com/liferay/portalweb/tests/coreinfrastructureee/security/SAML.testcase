@@ -649,10 +649,8 @@ definition {
 		User.viewLoggedOutPG();
 
 		SAML.executeSPInitiatedSSO(
-			password = "test",
-			specificURL = "http://www.able.com:9080",
-			spURL = "http://www.able.com:9080/",
-			userEmailAddress = "test@liferay.com");
+			autoLogin = "true",
+			specificURL = "http://www.able.com:9080");
 
 		User.viewLoggedInPG();
 
@@ -958,10 +956,8 @@ definition {
 		User.viewLoggedOutPG();
 
 		SAML.executeSPInitiatedSSO(
-			password = "test",
-			specificURL = "http://www.able.com:9080",
-			spURL = "http://www.able.com:9080/",
-			userEmailAddress = "test@liferay.com");
+			autoLogin = "true",
+			specificURL = "http://www.able.com:9080");
 
 		User.viewLoggedInPG();
 
