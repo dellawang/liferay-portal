@@ -650,17 +650,13 @@ definition {
 
 		Navigator.openSpecificURL(url = "http://www.able.com:9080");
 
-		if (IsElementPresent(locator1 = "UserBar#USER_AVATAR_IMAGE")) {
-			User.logoutPG(specificURL = "${specificURL}");
-
-			User.viewLoggedOutPG();
+		if (IsElementNotPresent(locator1 = "UserBar#USER_AVATAR_IMAGE")) {
+			SAML.executeSPInitiatedSSO(
+				password = "test",
+				specificURL = "http://www.able.com:9080",
+				spURL = "http://www.able.com:9080/",
+				userEmailAddress = "test@liferay.com");
 		}
-
-		SAML.executeSPInitiatedSSO(
-			password = "test",
-			specificURL = "http://www.able.com:9080",
-			spURL = "http://www.able.com:9080/",
-			userEmailAddress = "test@liferay.com");
 
 		User.viewLoggedInPG();
 
@@ -694,17 +690,13 @@ definition {
 
 		Navigator.openSpecificURL(url = "http://www.able.com:9080");
 
-		if (IsElementPresent(locator1 = "UserBar#USER_AVATAR_IMAGE")) {
-			User.logoutPG(specificURL = "${specificURL}");
-
-			User.viewLoggedOutPG();
+		if (IsElementNotPresent(locator1 = "UserBar#USER_AVATAR_IMAGE")) {
+			SAML.executeSPInitiatedSSO(
+				password = "test",
+				specificURL = "http://www.able.com:9080",
+				spURL = "http://www.able.com:9080/",
+				userEmailAddress = "test@liferay.com");
 		}
-
-		SAML.executeSPInitiatedSSO(
-			password = "test",
-			specificURL = "http://www.able.com:9080",
-			spURL = "http://www.able.com:9080/",
-			userEmailAddress = "test@liferay.com");
 
 		User.viewLoggedInPG();
 
@@ -1004,16 +996,12 @@ definition {
 
 		Navigator.openSpecificURL(url = "http://www.able.com:9080");
 
-		if (IsElementPresent(locator1 = "UserBar#USER_AVATAR_IMAGE")) {
-			User.logoutPG(specificURL = "${specificURL}");
-
-			User.viewLoggedOutPG();
-		}
-
-		User.loginPG(
+		if (IsElementNotPresent(locator1 = "UserBar#USER_AVATAR_IMAGE")) {
+			User.loginPG(
 			password = "test",
 			specificURL = "http://www.able.com:9080",
 			userEmailAddress = "test@liferay.com");
+		}
 	}
 
 	@priority = "4"
