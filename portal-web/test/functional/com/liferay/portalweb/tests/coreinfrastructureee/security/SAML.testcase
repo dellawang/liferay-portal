@@ -648,6 +648,14 @@ definition {
 
 		User.viewLoggedOutPG();
 
+		Navigator.openSpecificURL(url = "http://www.able.com:9080");
+
+		if (IsElementPresent(locator1 = "UserBar#USER_AVATAR_IMAGE")) {
+			User.logoutPG(specificURL = "${specificURL}");
+
+			User.viewLoggedOutPG();
+		}
+
 		SAML.executeSPInitiatedSSO(
 			password = "test",
 			specificURL = "http://www.able.com:9080",
@@ -683,6 +691,14 @@ definition {
 		User.logoutPG(specificURL = "http://www.able.com:9080");
 
 		User.viewLoggedOutPG();
+
+		Navigator.openSpecificURL(url = "http://www.able.com:9080");
+
+		if (IsElementPresent(locator1 = "UserBar#USER_AVATAR_IMAGE")) {
+			User.logoutPG(specificURL = "${specificURL}");
+
+			User.viewLoggedOutPG();
+		}
 
 		SAML.executeSPInitiatedSSO(
 			password = "test",
@@ -985,6 +1001,14 @@ definition {
 		User.logoutPG();
 
 		User.viewLoggedOutPG();
+
+		Navigator.openSpecificURL(url = "http://www.able.com:9080");
+
+		if (IsElementPresent(locator1 = "UserBar#USER_AVATAR_IMAGE")) {
+			User.logoutPG(specificURL = "${specificURL}");
+
+			User.viewLoggedOutPG();
+		}
 
 		User.loginPG(
 			password = "test",
