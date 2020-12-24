@@ -690,7 +690,22 @@ definition {
 
 		Navigator.openSpecificURL(url = "http://www.able.com:9080");
 
-		if (IsElementNotPresent(locator1 = "UserBar#USER_AVATAR_IMAGE")) {
+		if (IsElementPresent(locator1 = "UserBar#USER_AVATAR_IMAGE")) {
+			Open.openInTheNewTab(locator1 = "http://www.able.com:9080");
+
+			User.logoutPG();
+
+			User.viewLoggedOutPG();
+
+			Refresh();
+
+			SAML.executeSPInitiatedSSO(
+				password = "test",
+				specificURL = "http://www.able.com:9080",
+				spURL = "http://www.able.com:9080/",
+				userEmailAddress = "test@liferay.com");			
+		}
+		else {
 			SAML.executeSPInitiatedSSO(
 				password = "test",
 				specificURL = "http://www.able.com:9080",
