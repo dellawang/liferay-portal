@@ -114,7 +114,7 @@ definition {
 
 	macro gotoNavUnderline {
 		var key_navUnderline = "${navUnderline}";
-		var rowEntry_name = "${navUnderline}";
+		var rowEntry = "${rowEntry}";
 
 		AssertClick(
 			locator1 = "NavUnderline#NAV_UNDERLINE_LINK",
@@ -125,7 +125,7 @@ definition {
 
 			LexiconEntry.gotoEntryMenuItem(
 				menuItem = "Edit",
-				rowEntry = "${rowEntry_name}");
+				rowEntry = "${rowEntry}");
 
 			AssertClick(
 				key_navItem = "Scopes",
