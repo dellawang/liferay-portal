@@ -114,7 +114,6 @@ definition {
 
 	macro gotoNavUnderline {
 		var key_navUnderline = "${navUnderline}";
-		var rowEntry = "${rowEntry}";
 
 		AssertClick(
 			locator1 = "NavUnderline#NAV_UNDERLINE_LINK",
