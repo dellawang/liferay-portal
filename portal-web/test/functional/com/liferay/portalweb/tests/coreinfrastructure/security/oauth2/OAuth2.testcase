@@ -455,6 +455,19 @@ definition {
 			locator1 = "NavBar#NAV_ITEM_LINK",
 			value1 = "Scopes");
 
+		while (IsElementNotPresent(key_navItem = "Scopes", locator1 = "NavBar#ACTIVE_NAV_ITEM_LINK")) {
+			Navigator.gotoBack();
+
+			LexiconEntry.gotoEntryMenuItem(
+				menuItem = "Edit",
+				rowEntry = "Analytics Cloud");
+
+			AssertClick(
+				key_navItem = "Scopes",
+				locator1 = "NavBar#NAV_ITEM_LINK",
+				value1 = "Scopes");
+			}
+
 		AssertElementPresent(
 			key_navItem = "Scopes",
 			locator1 = "NavBar#ACTIVE_NAV_ITEM_LINK");

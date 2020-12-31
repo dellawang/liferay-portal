@@ -120,23 +120,6 @@ definition {
 			locator1 = "NavUnderline#NAV_UNDERLINE_LINK",
 			value1 = "${navUnderline}");
 
-		while (IsElementNotPresent(locator1 = "NavUnderline#ACTIVE_NAV_UNDERLINE_LINK", value1 = "{navUnderline}")) {
-			Navigator.gotoBack();
-
-			LexiconEntry.gotoEntryMenuItem(
-				menuItem = "Edit",
-				rowEntry = "${rowEntry}");
-
-			AssertClick(
-				key_navItem = "Scopes",
-				locator1 = "NavBar#NAV_ITEM_LINK",
-				value1 = "Scopes");
-
-			AssertElementPresent(
-				key_navItem = "Scopes",
-				locator1 = "NavBar#ACTIVE_NAV_ITEM_LINK");
-			}
-
 		AssertElementPresent(locator1 = "NavUnderline#ACTIVE_NAV_UNDERLINE_LINK");
 	}
 
