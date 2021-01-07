@@ -600,6 +600,7 @@ definition {
 
 	@priority = "4"
 	test AssertSSOWithSignAuthnRequests {
+		property portal.upstream = "quarantine";
 		property test.name.skip.portal.instance = "SAML#AssertSSOWithSignAuthnRequests";
 
 		SAML.configureLiferaySAMLAsIdP(samlEntityID = "samlidp");
