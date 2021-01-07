@@ -986,10 +986,14 @@ definition {
 
 		User.viewLoggedOutPG();
 
-		User.loginPG(
-			password = "test",
-			specificURL = "http://www.able.com:9080",
-			userEmailAddress = "test@liferay.com");
+		Navigator.openSpecificURL(url = "http://www.able.com:9080");
+
+		if (IsElementNotPresent(locator1 = "UserBar#USER_AVATAR_IMAGE")) {
+			User.loginPG(
+				password = "test",
+				specificURL = "http://www.able.com:9080",
+				userEmailAddress = "test@liferay.com");
+		}
 	}
 
 	@priority = "4"
