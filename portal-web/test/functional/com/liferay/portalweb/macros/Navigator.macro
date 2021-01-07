@@ -119,6 +119,27 @@ definition {
 			locator1 = "NavUnderline#NAV_UNDERLINE_LINK",
 			value1 = "${navUnderline}");
 
+		if (IsElementNotPresent(locator1 = "NavUnderline#ACTIVE_NAV_UNDERLINE_LINK")) {
+			Refresh();
+
+			Pause(locator1 = "2000");
+		}
+
+		if (IsElementNotPresent(locator1 = "NavUnderline#ACTIVE_NAV_UNDERLINE_LINK")) {
+			Navigator.gotoBack();
+
+			LexiconEntry.gotoEntryMenuItem(
+				menuItem = "Edit",
+				rowEntry = "Analytics Cloud");
+
+			AssertClick(
+				key_navItem = "Scopes",
+				locator1 = "NavBar#NAV_ITEM_LINK",
+				value1 = "Scopes");
+
+			Pause(locator1 = "3000");
+		}
+
 		AssertElementPresent(locator1 = "NavUnderline#ACTIVE_NAV_UNDERLINE_LINK");
 	}
 
