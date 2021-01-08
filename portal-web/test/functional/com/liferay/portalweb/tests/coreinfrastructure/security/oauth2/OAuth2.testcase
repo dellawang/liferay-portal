@@ -441,6 +441,18 @@ definition {
 
 		SystemSettings.deleteConfiguration();
 
+		User.logoutPG();
+
+		Portlet.shutdownServer();
+
+		Portlet.startServer(deleteLiferayHome = "false");
+
+		Portlet.assertServerStartup();
+
+		User.loginPG(
+			password = "test",
+			userEmailAddress = "test@liferay.com");
+
 		ApplicationsMenu.gotoPortlet(
 			category = "Security",
 			panel = "Control Panel",
@@ -627,6 +639,18 @@ definition {
 		SystemSettings.gotoConfigurationEntry(configurationEntry = "Default");
 
 		SystemSettings.deleteConfiguration();
+
+		User.logoutPG();
+
+		Portlet.shutdownServer();
+
+		Portlet.startServer(deleteLiferayHome = "false");
+
+		Portlet.assertServerStartup();
+
+		User.loginPG(
+			password = "test",
+			userEmailAddress = "test@liferay.com");
 
 		ApplicationsMenu.gotoPortlet(
 			category = "Security",
@@ -1081,6 +1105,18 @@ definition {
 		property custom.properties = "virtual.hosts.default.site.name=Guest";
 		property osgi.module.configuration.file.names = "com.liferay.oauth2.provider.scope.internal.configuration.BundlePrefixHandlerFactoryConfiguration-default.config";
 		property osgi.module.configurations = "include.bundle.symbolic.name=&quot;false&quot;${line.separator}osgi.jaxrs.name=&quot;Default&quot;${line.separator}separator=&quot;&quot;${line.separator}service.properties=&quot;&quot;";
+
+		User.logoutPG();
+
+		Portlet.shutdownServer();
+
+		Portlet.startServer(deleteLiferayHome = "false");
+
+		Portlet.assertServerStartup();
+
+		User.loginPG(
+			password = "test",
+			userEmailAddress = "test@liferay.com");
 
 		ApplicationsMenu.gotoPortlet(
 			category = "Security",
